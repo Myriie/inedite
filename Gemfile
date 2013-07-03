@@ -8,6 +8,8 @@ gem 'bcrypt-ruby', '3.0.1'
 
 gem 'therubyracer'
 
+gem 'devise'
+
 group :development, :test do
   gem 'sqlite3', '1.3.6'
   gem 'rspec-rails', '2.11.0'
