@@ -11,19 +11,11 @@
     <!--Ajout du header par ruby-->
 
     <%= render 'layouts/header' %>
-    <div class="container">
+    <div class="container fluid">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
 
-<!-- Alerte de Devise -->
-
-<% if notice %>
-  <p class="alert alert-notice"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-error"><%= alert %></p>
-<% end %>
 
 
       <!-- Corp de page -->
