@@ -3,3 +3,12 @@
 <p><%= @article.description %></p>
 <p>Prix : <%= @article.price %>€</p>
 
+ <div class="span8">
+    <% if @article.clothes.any? %>
+      <h3>L'article <%= @article.title%> est un vetement (<%= @article.clothes.count %>)</h3>
+      <ol class="clothes">
+        Description du vetement:
+        <%= render @clothes %>
+      </ol>
+    <% end %>
+  </div>

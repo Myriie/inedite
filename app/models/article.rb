@@ -13,4 +13,6 @@
 
 class Article < ActiveRecord::Base
   attr_accessible :description, :id, :price, :title, :type_art
+
+  has_many :clothes, dependent: :destroy
 end
