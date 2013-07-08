@@ -10,20 +10,26 @@
       <ol class="clothes">
         Description du vetement:
 
+<% sizes = @article.clothes.all.map{ |clothe| clothe.size }.uniq %>
+<% sizeu = sizes.uniq! %>
+
+
 <p>Disponible en:
    	<ul>
-        
-        	
-        	<% sizes = @article.clothes.all.map{ |clothe| clothe.size }%>
-        		<% size = sizes.uniq! %>
-        		<% size.each do |s|  %>
-        			<%= s %>
-        		<% end %>
-
-
-        
+<%= collection_select(:clothe, :id, @article.clothes, :id, :size, options ={:prompt => "-Choisir une taille"}, :class =>"taille") %>
     </ul>
 </p>
+
+        	
+
+        		
+
+
+
+
+
+        
+   
 
 
     </ol>
