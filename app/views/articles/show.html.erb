@@ -8,28 +8,33 @@
       <h3>L'article <%= @article.title%> est un vetement (<%= @article.clothes.count %>)</h3>
      
       <ol class="clothes">
-        Description du vetement:
+        
+Description du vetement:<br />
+<%= @article.description %>
+<br />
+<br />
 
-<% sizes = @article.clothes.all.map{ |clothe| clothe.size }.uniq %>
-<% sizeu = sizes.uniq! %>
 
+
+<% @taille = @article.clothes.find(:all, :select => 'DISTINCT size')%>
+
+<% @couleur = @article.clothes.find(:all, :select => 'DISTINCT color')%>
 
 <p>Disponible en:
    	<ul>
-<%= collection_select(:clothe, :id, @article.clothes, :id, :size, options ={:prompt => "-Choisir une taille"}, :class =>"taille") %>
+
+Taille: <br />
+<%= collection_select(:clothe, :id, @taille, :id, :size, options ={:prompt => "-Choisir une taille"}, :class =>"taille") %><br />
+
+Couleur:<br />
+<%= collection_select(:clothe, :id, @couleur, :id, :color, options ={:prompt => "-Couleurs disponibles"}, :class =>"taille") %>
+
     </ul>
 </p>
 
-        	
+        	        
+    
 
-        		
-
-
-
-
-
-        
-   
 
 
     </ol>
