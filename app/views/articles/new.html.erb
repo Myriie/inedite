@@ -1,2 +1,20 @@
-<h1>Articles#new</h1>
-<p>Find me in app/views/articles/new.html.erb</p>
+
+<% @type_art = Article.find(:all, :select => 'DISTINCT type_art')%>
+
+<p>
+	<%= form_for @article, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+<%= render 'error_messages' %>
+
+		<%= f.label :titre %>
+  			<%= f.text_field :title %>
+  		<%= f.label :description %>
+  			<%= f.text_field :description %>
+  		<%= f.label :prix %>
+  			<%= f.text_field :price %>
+  		<%= f.label :type_article %>
+  			<%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :class =>"type_art") %> 
+  		<br />
+		<%= f.submit "Create" %>
+	<% end %>
+</p>
+
