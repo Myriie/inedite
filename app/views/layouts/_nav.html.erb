@@ -1,9 +1,12 @@
 <div class="span3">
 		<ul class="nav nav-list">
+				<% cats = Article.all.map { |a| a.type_art } %>
+				<% cat = cats.uniq!.sort %>
                 <li class="nav-header">Catégories</li>
-                <li><a href="#">Vetements</a></li>
-                <li><a href="#">Boissons</a></li>
-                <li><a href="#">Informatique</a></li>
-                <li><a href="#">Bod'our</a></li>
+                <% cat.each do |c| %>
+                <li><a href="/categories/?type=<%=c%>"><%= c%></a></li>
+                <%end%>
+                <li><a href="/articles">Tous les articles</a></li>
+
               </ul>
 </div>

@@ -1,0 +1,12 @@
+<h1><%=@type%></h1>
+
+<% articles=Article.all%>
+
+<% articles.each do |f| %>
+<% if f.type_art==@type%>
+<%@f=f%>
+
+<%= render 'articles/vignette' %>
+
+<%end%>
+<% end %>
