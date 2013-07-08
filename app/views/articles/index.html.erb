@@ -2,7 +2,7 @@
 <% @articles.each do |f| %>
 
                 <div class="thumbnail">
-                    <h3><%= f.title %></h3>
+                    <h3><a href="articles/<%= f.id %>"><%= f.title %></a></h3>
                     <p><%= f.description %></p>
                     <p><strong>Prix : <%= f.price %>€</strong></p>
                     <% if f.clothes.any? %>
