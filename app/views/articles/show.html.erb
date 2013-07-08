@@ -6,11 +6,35 @@
 <div class="span8">
     <% if @article.clothes.any? %>
       <h3>L'article <%= @article.title%> est un vetement (<%= @article.clothes.count %>)</h3>
+     
       <ol class="clothes">
         Description du vetement:
-        <%= render @clothes %>
-      </ol>
+
+<p>Disponible en:
+   	<ul>
+        
+        	
+        	<% sizes = @article.clothes.all.map{ |clothe| clothe.size }%>
+        		<% size = sizes.uniq! %>
+        		<% size.each do |s|  %>
+        			<%= s %>
+        		<% end %>
+
+
+        
+    </ul>
+</p>
+
+
+    </ol>
 
     <% end %>
 </div>
 
+
+sizes = Clothe.all.map{ |clothe| clothe.size }
+p sizes
+=> ["S", "M", "M"]
+sizes.uniq!
+p sizes
+=> ["S", "M"]
