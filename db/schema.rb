@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704130240) do
+ActiveRecord::Schema.define(:version => 20130709082521) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -31,6 +31,26 @@ ActiveRecord::Schema.define(:version => 20130704130240) do
   end
 
   add_index "clothes", ["article_id", "created_at"], :name => "index_clothes_on_article_id_and_created_at"
+
+  create_table "paniers", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "validated"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "paniers", ["user_id", "created_at"], :name => "index_paniers_on_user_id_and_created_at"
+
+  create_table "reservations", :force => true do |t|
+    t.integer  "article_id"
+    t.integer  "panier_id"
+    t.integer  "quantity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reservations", ["article_id"], :name => "index_reservations_on_article_id"
+  add_index "reservations", ["panier_id"], :name => "index_reservations_on_panier_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

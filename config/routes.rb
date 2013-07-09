@@ -10,6 +10,8 @@ Inedite::Application.routes.draw do
   root to: 'static_pages#home'
 
   match '/signup',  to: 'users#new'
+  match '/panier', to: 'paniers#show'
+  match '/add', to: 'paniers#add'
   match '/categories', to: 'articles#cat'
   match '/article', to: 'articles#new'
   match '/articles', to: 'articles#index'

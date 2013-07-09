@@ -1,0 +1,7 @@
+<h1>Panier</h1>
+
+<% @panier.reservations.each do |res| %>
+	<% article = Article.find(res.article_id) %>
+	<p><%= article.title %> : x <%= res.quantity %></p>
+
+<%end%>
