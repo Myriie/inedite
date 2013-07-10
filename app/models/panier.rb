@@ -1,5 +1,5 @@
 class Panier < ActiveRecord::Base
-  attr_accessible :user_id, :validated, :finish
+  attr_accessible :user_id, :validated
 	belongs_to :user
 	has_many :reservations
 

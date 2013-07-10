@@ -2,13 +2,17 @@ class PaniersController < ApplicationController
 
   def show
   	if user_signed_in?
-  		if current_user.paniers.last.validated?
-    		@panier = Panier.new(user_id: current_user, validated: false)
-    		@panier.save
-   	 	
-   	 	else
-   	 		@panier = current_user.paniers.last
-   	 	end
+      if current_user.paniers.empty?
+        @panier = Panier.new(user_id: current_user.id, validated: false)
+      else
+    		if current_user.paniers.last.validated? 
+      		@panier = Panier.new(user_id: current_user.id, validated: false)
+      		@panier.save
+     	 	
+     	 	else
+     	 		@panier = current_user.paniers.last
+     	 	end
+       end
   	else
   		flash[:error] = "Veuillez vous connecter pour avoir un panier"
   		redirect_to '/users/sign_in'
@@ -18,7 +22,7 @@ class PaniersController < ApplicationController
   def add
     if user_signed_in?
       if current_user.paniers.last.validated?
-        panier = Panier.new(user_id: current_user, validated: false)
+        panier = Panier.new(user_id: current_user.id, validated: false)
         panier.save
       
       else
