@@ -2,6 +2,12 @@
 
 <% @panier.reservations.each do |res| %>
 	<% article = Article.find(res.article_id) %>
-	<p><%= article.title %> : x <%= res.quantity %></p>
+	<p><%= article.title %> : x <%= res.quantity %>
+
+	<%= form_tag("/destroy", method: "get") do %>
+	  <%= hidden_field_tag(:article_id, article.id) %>
+	  <%= submit_tag("Enlever du panier") %>
+	<% end %>
+</p>
 
 <%end%>
