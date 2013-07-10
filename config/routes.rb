@@ -12,6 +12,8 @@ Inedite::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/panier', to: 'paniers#show'
   match '/add', to: 'paniers#add'
+  match '/flush', to: 'paniers#flush'
+  match '/edit', to: 'paniers#edit'
   match '/destroy', to: 'paniers#destroy'
   match '/categories', to: 'articles#cat'
   match '/article', to: 'articles#new'
