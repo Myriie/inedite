@@ -1,7 +1,23 @@
-<h1>Panier</h1>
+<h1>Mon panier</h1>
+
+<% sum = 0 %>
 
 <% @panier.reservations.each do |res| %>
 	<% article = Article.find(res.article_id) %>
-	<p><%= article.title %> : x <%= res.quantity %></p>
+	<p>
+		<%= article.title %> : x <%= res.quantity %><br />
+		Prix unitaire: <%= article.price%> €<br />
+		Prix: <%= article.price * res.quantity%> €
+
+		<% sum = sum + article.price * res.quantity %> 
+
+	</p>
+
 
 <%end%>
+
+<p>
+	Total: <%= sum%> €
+</p>
+
+      
