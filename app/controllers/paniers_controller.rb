@@ -4,6 +4,7 @@ class PaniersController < ApplicationController
   	if user_signed_in?
       if current_user.paniers.empty?
         @panier = Panier.new(user_id: current_user.id, validated: false)
+        @panier.save
       else
     		if current_user.paniers.last.validated? 
       		@panier = Panier.new(user_id: current_user.id, validated: false)
@@ -21,12 +22,17 @@ class PaniersController < ApplicationController
 
   def add
     if user_signed_in?
-      if current_user.paniers.last.validated?
+      if current_user.paniers.empty?
         panier = Panier.new(user_id: current_user.id, validated: false)
         panier.save
-      
       else
-        panier = current_user.paniers.last
+        if current_user.paniers.last.validated?
+          panier = Panier.new(user_id: current_user.id, validated: false)
+          panier.save
+        
+        else
+          panier = current_user.paniers.last
+        end
       end
 
       list_res = panier.reservations.all
