@@ -2,13 +2,27 @@
 
 <h3><%= @article.title %></h3>
 
+<p>
+	<%= form_tag("/delete", method: "get") do %>
+	
+		Description:<br />
+		<%= text_field_tag(:description, @article.description) %><br />
+
+ 		Prix : <%= number_field_tag(:price, @article.price) %>€<br />
+
+ 		Type: <%= text_field_tag(:type_art, @type_art) %><br />
+
+  		<%= submit_tag("Modifier") %>
+
+	<% end %>
+</p>
+
+
 
 <p>
-
-<% if @article.type_art =="Vetement" %>
-<%= render '/clothes/new' %>
-<%= render '/clothes/delete' %>
-<%end%>
-
- </p>
+	<% if @article.type_art =="Vetement" %>
+	<%= render '/clothes/new' %>
+	<%= render '/clothes/delete' %>
+	<%end%>
+</p>
 
