@@ -3,7 +3,6 @@ class CreatePaniers < ActiveRecord::Migration
     create_table :paniers do |t|
       t.integer :user_id
       t.boolean :validated
-      t.boolean :finish
 
       t.timestamps
     end
