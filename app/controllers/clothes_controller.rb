@@ -8,10 +8,10 @@ class ClothesController < ApplicationController
       @clothe.article_id= params[:article_id]
     	if @clothe.save
       		flash[:success] = "Clothe created!"
-      		redirect_to root_path
+      		redirect_to '/admin'
     	else
       		flash[:error] = "Ne marche pas"
-      		render 'new'
+      		redirect_to '/admin'
    		 end
   	end
 
