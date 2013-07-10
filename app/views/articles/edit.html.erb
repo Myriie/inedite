@@ -1,0 +1,26 @@
+<% provide(:title, @article.title) %>
+<h1> Modifier un article </h1>
+
+<h3><%= @article.title %></h3>
+
+<p>
+	Description:<br />
+<%= text_field_tag(:description, @article.description) %>
+</p>
+<p>
+	Prix: 
+<%= number_field_tag(:price, @article.price) %>€
+</p>
+
+<%= form_for @clothe, remote: true, url: {action: "create"}, html: {class: "	nifty_form"} do |f| %>
+		<%= render 'error_messages' %>
+
+		<%= f.label :size %>
+  			<%= f.text_field :size %>
+  		<%= f.label :color %>
+  			<%= f.text_field :color %>
+  			<br />
+		<%= f.submit "Create" %>
+	<% end %>
+  
+

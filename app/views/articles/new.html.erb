@@ -1,15 +1,10 @@
 
 <% @type_art = Article.find(:all, :select => 'DISTINCT type_art')%>
 
-<SCRIPT LANGUAGE="javascript">
-function controle(form1) {
-var test = document.form1.input.value;
-alert("Vous avez tapé : " + test);
-}
-</SCRIPT>
+
 
 <p>
-	<%= form_for @article, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+	<%= form_for @article, remote: true, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
 <%= render 'error_messages' %>
 
 		<%= f.label :titre %>
@@ -19,8 +14,9 @@ alert("Vous avez tapé : " + test);
   		<%= f.label :prix %>
   			<%= f.text_field :price %>
   		<%= f.label :type_article %>
-  			<%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :class =>"type_art") %> 
+  			<%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :class =>"type_art")%> 
   		<br />
+
       
 
 		<%= f.submit "Create" %>
