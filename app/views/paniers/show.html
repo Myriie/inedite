@@ -1,5 +1,4 @@
 <h1>Panier</h1>
-<%=@panier.save%>
 
 <% @panier.reservations.each do |res| %>
 	<% article = Article.find(res.article_id) %>
