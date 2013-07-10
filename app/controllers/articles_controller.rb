@@ -23,6 +23,6 @@ class ArticlesController < ApplicationController
   end
   def edit
     @article = Article.find(params[:id])
-    @clothe = Clothe.new()
+
   end
 end

@@ -1,0 +1,11 @@
+
+<%= form_tag("/create", method: "get") do %>
+	Taille:
+  <%= text_field_tag(:size) %><br />
+  	Couleur:
+  <%= text_field_tag(:color) %><br />
+  <%= hidden_field_tag(:article_id, @article.id) %>
+
+  <%= submit_tag("Ajouter ce vetement") %>
+
+<% end %>

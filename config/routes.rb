@@ -9,20 +9,30 @@ Inedite::Application.routes.draw do
 
   root to: 'static_pages#home'
 
+#Users
   match '/signup',  to: 'users#new'
+
+#Panier
   match '/panier', to: 'paniers#show'
   match '/add', to: 'paniers#add'
   match '/flush', to: 'paniers#flush'
   match '/edit', to: 'paniers#edit'
   match '/destroy', to: 'paniers#destroy'
+
+#Articles
   match '/categories', to: 'articles#cat'
   match '/article', to: 'articles#new'
   match '/articles', to: 'articles#index'
+
+#Static Pages
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/admin', to: 'static_pages#admin'
 
+#Clothe
+  match '/create', to: 'clothes#create'
+  match '/delete', to: 'clothes#delete'
   
   
   # The priority is based upon order of creation:
