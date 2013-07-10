@@ -1,6 +1,6 @@
 
-<%= form_tag("/add", method: "get") do %>
-  <%= number_field_tag(:quantity) %>
+<%= form_tag("/add", method: "post") do %>
+  <%= number_field_tag(:quantity, nil, :min =>0, :max => 5) %>
   <%= hidden_field_tag(:article_id, @article.id) %>
   <%= submit_tag("Ajouter au panier") %>
 <% end %>
