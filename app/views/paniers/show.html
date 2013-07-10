@@ -6,9 +6,8 @@
 	<% article = Article.find(res.article_id) %>
 
 	<p>
-		<%= article.title %> : x <%= res.quantity %><br />
-		Prix unitaire: <%= article.price%> €<br />
-		Prix: <%= article.price * res.quantity%> €
+   		<a href="/articles/<%= article.id %>"><%= article.title %></a> 
+		<%= res.quantity %> x <%= article.price%>€ = <%= article.price * res.quantity%> €
 		<% sum = sum + article.price * res.quantity %> 
 			<%= form_tag("/destroy", method: "get") do %>
 	  <%= hidden_field_tag(:article_id, article.id) %>
@@ -20,7 +19,7 @@
 <%end%>
 
 <p>
-	Total: <%= sum%> €
+	Total: <%= sum %> €
 
 </p>
 

@@ -1,6 +1,13 @@
 
 <% @type_art = Article.find(:all, :select => 'DISTINCT type_art')%>
 
+<SCRIPT LANGUAGE="javascript">
+function controle(form1) {
+var test = document.form1.input.value;
+alert("Vous avez tapé : " + test);
+}
+</SCRIPT>
+
 <p>
 	<%= form_for @article, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
 <%= render 'error_messages' %>
@@ -14,6 +21,8 @@
   		<%= f.label :type_article %>
   			<%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :class =>"type_art") %> 
   		<br />
+      
+
 		<%= f.submit "Create" %>
 	<% end %>
 </p>
