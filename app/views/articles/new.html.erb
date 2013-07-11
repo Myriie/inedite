@@ -13,10 +13,11 @@
       <%= f.text_field :price %>
    
     <%= f.label :type_article %>
-      <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :class =>"type_art")%>
-    
-    <%= f.label :type_article %>
-        <%= f.text_field :type_art %>
+    <div id="field">
+      <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :id =>"type_art")%>
+    </div>
+    <a id="change">Cliquez ici pour changez la méthode de selection du type</a>
+  </br>
 
 
     </br>
@@ -27,3 +28,30 @@
   <% end %>
 </p>
 
+  <script>
+    var clicked = false;
+    var element = document.getElementById('change');
+    var field = document.getElementById('field');
+    var child = document.getElementById('type_art');
+
+    var newField = document.createElement('input');
+    newField.type="text";
+    newField.name="article[type_art]"
+ 
+    element.onclick = function() {
+
+      if (!clicked) {
+        field.removeChild(child);
+        field.appendChild(newField);
+        
+      }
+
+      else {
+        element.href="/articles/new";
+      }
+
+
+      clicked=!clicked;
+
+    };
+  </script>
