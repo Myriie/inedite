@@ -1,6 +1,17 @@
+<style>
+
+
+
+td {
+	border: solid black 1px;
+}
+
+
+</style>
+
 <h1>Bienvenue sur la page de gestion des articles de la boutique</h3>
 
-	<a href="/article">Creer un nouvel article</a>
+	<a href="/article">Creer un nouvel article</a><br />
 
 	<table>
   		<tr>
@@ -9,23 +20,42 @@
 	       	<th>Prix</th>
 	       	<th>Type</th>
 	       	<th>Combinaisons disponibles</th>
+	       	<th>Modifier</th>
+	       	<th>Supprimer</th>
 	  	</tr>
+
 	  		<% @articles.each do |art| %>
+	  	
 	  			<tr>
 			       	<td> <%= art.title %> 
-			       	<td> <%= art.description %>
-			       	<td> <%= art.price%> 
+			    
+			       	<td> <%= art.description %> 
+			    
+			       	<td> <%= art.price%>€
+			    
 			       	<td> <%= art.type_art %>
+			    
 			       	<td>	<% if art.clothes.any? %>
-			       				<% @couleur = art.clothes.find(:all, :select => 'DISTINCT color')%>
-				       			<% @couleur.each do |col| %>
-				       				<%= col %>
-				       				<% @taille = art.clothes.find(:size, :color => 'col') %>
-				       				<% for tai in @taille %>
-				       					<% tai.size %>
-				       				<% end %>
+			       				<% @vet = art.clothes.find(:all)%>
+				       			<% @vet.each do |v| %>
+				       				<%= v.color %>
+				       				<%= v.size%>
+				       				<br />
 				       			<% end %>
-	        				<% end %>
-			  	</tr>
-	  		<% end %>
+	        				<% end %> 
+	        	
+	        		<td> 
+	        			<%= form_tag("/edit", method: "get") do %>
+					  	<%= hidden_field_tag(:id, art.id) %>
+					  	<%= submit_tag("Modifier") %>
+						<% end %>
+
+	        		<td>
+	        			<%= form_tag("/delete", method: "get") do %>        				
+					  	<%= hidden_field_tag(:id, art.id) %>
+					  	<%= submit_tag("Supprimer") %>
+						<% end %>
+				</tr>
+		
+			<% end %>
 	</table>
