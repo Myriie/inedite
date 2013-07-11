@@ -10,23 +10,22 @@
 	       	<th>Type</th>
 	       	<th>Combinaisons disponibles</th>
 	  	</tr>
-	  		<% for art in @articles %>
+	  		<% @articles.each do |art| %>
 	  			<tr>
 			       	<td> <%= art.title %> 
 			       	<td> <%= art.description %>
 			       	<td> <%= art.price%> 
 			       	<td> <%= art.type_art %>
-			       	<td>     <% if @article.clothes.any? %>
-        					<% @taille = @article.clothes.find(:all, :select => 'DISTINCT size')%>
-							<% @couleur = @article.clothes.find(:all, :select => 'DISTINCT color')%>
-							
-				<p>Disponible en:
-						Taille: <br />
-						<%= collection_select(:clothe, :id, @taille, :id, :size, options ={:prompt => "-Choisir une taille"}, :class =>"taille") %><br />
-						Couleur:<br />
-						<%= collection_select(:clothe, :id, @couleur, :id, :color, options ={:prompt => "-Couleurs disponibles"}, :class =>"taille") %>
-				</p>
-    <% end %>
+			       	<td>	<% if art.clothes.any? %>
+			       				<% @couleur = art.clothes.find(:all, :select => 'DISTINCT color')%>
+				       			<% @couleur.each do |col| %>
+				       				<%= col %>
+				       				<% @taille = art.clothes.find(:size, :color => 'col') %>
+				       				<% for tai in @taille %>
+				       					<% tai.size %>
+				       				<% end %>
+				       			<% end %>
+	        				<% end %>
 			  	</tr>
 	  		<% end %>
 	</table>
