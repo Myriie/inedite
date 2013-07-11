@@ -1,8 +1,6 @@
 Inedite::Application.routes.draw do
   resources :articles
 
-  get "articles/new"
-
   devise_for :users
 
   get "users/new"
@@ -13,19 +11,17 @@ Inedite::Application.routes.draw do
   match '/signup',  to: 'users#new'
 
 #Panier
-  match '/panier', to: 'paniers#show'
+  match '/panier', to: 'paniers#index'
   match '/add', to: 'paniers#add'
   match '/flush', to: 'paniers#flush'
   match '/edit', to: 'paniers#edit'
   match '/destroy', to: 'paniers#destroy'
 
 #Articles
-  match '/categories', to: 'articles#cat'
-  match '/article', to: 'articles#new'
-  match '/articles', to: 'articles#index'
+  match '/categories', to: 'articles#cat' #OK
   match '/gestionArticle', to: 'articles#gestionArticle'
 
-#Static Pages
+#Static Pages OK
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'

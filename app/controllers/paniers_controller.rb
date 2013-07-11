@@ -1,13 +1,13 @@
 class PaniersController < ApplicationController
 
-   before_filter :login, :only => [:show,:destroy,:add,:edit,:flush]
-   before_filter :set_panier, :only => [:destroy,:show, :add,:edit,:flush]
+   before_filter :login, :only => [:index,:destroy,:add,:edit,:flush]
+   before_filter :set_panier, :only => [:destroy,:index, :add,:edit,:flush]
    before_filter :set_article_id, :only => [:add,:destroy,:edit]
    before_filter :set_quantity, :only => [:add, :edit]
    before_filter :panier_vide, :only => [:destroy,:edit,:flush]
 
 
-  def show
+  def index
   end
 
 
