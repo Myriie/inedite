@@ -26,5 +26,6 @@ class ArticlesController < ApplicationController
   end
 
   def gestionArticle
+    @articles = Article.all.sort_by{|a| a.title}
   end
 end

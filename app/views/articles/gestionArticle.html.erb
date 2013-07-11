@@ -1,1 +1,32 @@
 <h1>Bienvenue sur la page de gestion des articles de la boutique</h3>
+
+	<a href="/article">Creer un nouvel article</a>
+
+	<table>
+  		<tr>
+	       	<th>Titre</th>
+	       	<th>Desciption</th>
+	       	<th>Prix</th>
+	       	<th>Type</th>
+	       	<th>Combinaisons disponibles</th>
+	  	</tr>
+	  		<% for art in @articles %>
+	  			<tr>
+			       	<td> <%= art.title %> 
+			       	<td> <%= art.description %>
+			       	<td> <%= art.price%> 
+			       	<td> <%= art.type_art %>
+			       	<td>     <% if @article.clothes.any? %>
+        					<% @taille = @article.clothes.find(:all, :select => 'DISTINCT size')%>
+							<% @couleur = @article.clothes.find(:all, :select => 'DISTINCT color')%>
+							
+				<p>Disponible en:
+						Taille: <br />
+						<%= collection_select(:clothe, :id, @taille, :id, :size, options ={:prompt => "-Choisir une taille"}, :class =>"taille") %><br />
+						Couleur:<br />
+						<%= collection_select(:clothe, :id, @couleur, :id, :color, options ={:prompt => "-Couleurs disponibles"}, :class =>"taille") %>
+				</p>
+    <% end %>
+			  	</tr>
+	  		<% end %>
+	</table>
