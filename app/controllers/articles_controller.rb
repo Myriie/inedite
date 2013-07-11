@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-
+  before_filter :get_all_articles , :only =>[:index,:gestionArticle,:cat]
+  before_filter :get_article_by_id, :only => [:show,:edit]
 
   def new
     @article = Article.new
@@ -7,12 +8,10 @@ class ArticlesController < ApplicationController
 
 
   def show
-  	@article = Article.find(params[:id])
   end
 
 
   def index
-  	@articles = Article.all
   end
 
 
@@ -34,12 +33,22 @@ class ArticlesController < ApplicationController
 
 
   def edit
-    @article = Article.find(params[:id])
   end
-  
+
 
   def gestionArticle
+  end
+
+
+  protected
+
+  def get_all_articles
     @articles = Article.all.sort_by{|a| a.title}
+  end
+
+
+  def get_article_by_id
+    @article = Article.find(params[:id])
   end
 
 
