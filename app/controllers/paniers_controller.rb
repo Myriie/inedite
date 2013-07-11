@@ -62,6 +62,9 @@ class PaniersController < ApplicationController
     redirect_to '/panier'
   end
 
+  def gestionPanier
+    @paniers = Panier.all
+  end
 
 
 protected

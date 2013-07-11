@@ -16,6 +16,7 @@ Inedite::Application.routes.draw do
   match '/flush', to: 'paniers#flush'
   match '/edit', to: 'paniers#edit'
   match '/destroy', to: 'paniers#destroy'
+  match '/gestionPanier', to: 'paniers#gestionPanier'
 
 #Articles
   match '/categories', to: 'articles#cat' #OK
