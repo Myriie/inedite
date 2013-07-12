@@ -23,6 +23,7 @@ Inedite::Application.routes.draw do
 #Articles
   match '/categories', to: 'articles#cat' #OK
   match '/gestionArticle', to: 'articles#gestionArticle'
+  match '/edit', to: 'articles#edit'
 
 #Static Pages OK
   match '/help',    to: 'static_pages#help'

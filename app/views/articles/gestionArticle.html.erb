@@ -27,7 +27,7 @@ td {
 	  		<% @articles.each do |art| %>
 	  	
 	  			<tr>
-			       	<td> <%= art.title %> 
+			       	<td> <li><%= link_to art.title,   article_path(art.id) %></li>
 			    
 			       	<td> <%= art.description %> 
 			    
@@ -44,15 +44,12 @@ td {
 				       			<% end %>
 	        				<% end %> 
 	        	
-	        		<td> 
-	        			<%= form_tag("/edit", method: "get") do %>
-					  	<%= hidden_field_tag(:id, art.id) %>
-					  	<%= submit_tag("Modifier") %>
-						<% end %>
+	        		<td> <li><%= button_to "Modifier",   edit_article_path(art.id), :method => :get %></li>
+
 
 	        		<td>
-	        			<%= form_tag(article_path(art.id), method: "delete") do %>        				
-					  	<%= hidden_field_tag(:id, art.id) %>
+	        			<%= form_tag(article_path(art.id), method: "delete") do %>        		
+	        			<%= hidden_field_tag(:id, art.id) %>
 					  	<%= submit_tag("Supprimer") %>
 						<% end %>
 				</tr>

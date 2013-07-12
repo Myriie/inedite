@@ -3,7 +3,7 @@
 <% nom_client = @panier.user.nom %>
 <% prenom_client = @panier.user.prenom %>
 
-<h1>Panier de <%= nom_client%> <%= prenom_client %></h1>
+<h1>Panier de <a href = "/users/<%= id_client%>"><%= nom_client%> <%= prenom_client %></a></h1>
 
 <% @panier.reservations.each do |res| %>
 	<% article = Article.find(res.article_id) %>

@@ -32,7 +32,7 @@ td {
 	  			<tr>
 			       	<td> <li><%= link_to p.id,   panier_path(p.id) %></li>
 			    
-			       	<td> <%= id_client%>. <%= nom_client%> <%= prenom_client%>
+			       	<td> <a href = "/users/<%=id_client%>"><%= id_client %> <%= nom_client %> <%= prenom_client %></a>
 
 			       	<td> <%= p.created_at %>
 

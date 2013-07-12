@@ -1,12 +1,14 @@
-<%= form_tag("/delete", method: "get") do %>
-	<select name="id">
-	<% @article.clothes.each do |c|%>
-	<option value=<%=c.id%>><%=c.size%> en <%= c.color%></otpion>
-	<%end%>
-</select>
+<% if @article.clothes.any? %>
+	<%= form_tag("/delete", method: "get") do %>
+		<select name="id">
+		<% @article.clothes.each do |c|%>
+		<option value=<%=c.id%>><%=c.size%> en <%= c.color%></otpion>
+		<%end%>
+	</select>
 
-  <%= hidden_field_tag(:article_id, @article.id) %>
+	  <%= hidden_field_tag(:article_id, @article.id) %>
 
-  <%= submit_tag("Supprimer cette combinaison") %>
+	  <%= submit_tag("Supprimer cette combinaison") %>
 
+	<% end %>
 <% end %>
