@@ -1,0 +1,47 @@
+<a href = "/gestionUser">Visualiser tous les clients</a><br />
+
+<% if @user.admin? %>
+<h1>Profil de <%= @user.nom%> <%= @user.prenom %> (Admin)</h1>
+<p>
+	Cette personne possède les droits d'administrateurs sur le site
+<p>
+<% else %>
+<h1>Profil de <%= @user.nom%> <%= @user.prenom %></h1>
+<p>
+	Cette personne n'est pas un administrateur
+</p>
+<% end %>
+
+<h3>Informations du client</h3>
+<p>
+	Numéro client : <%= @user.id %><br />
+	Nom : <%= @user.nom %><br />
+	Prenom : <%= @user.prenom %><br />
+	E-mail : <%= @user.email %><br />
+	Adresse : <%= @user.adresse %><br />
+	<% ins = @user.created_at %>
+	Date d'inscription : <%= ins.strftime("%d/%m/%Y") %><br />
+</p>
+
+<% @pan = Panier.where('user_id' => @user.id) %>
+<h3>Ses paniers: <%= @pan.length %></h3>
+<p>
+	<% @pan.each do |p| %>
+		<% date = p.created_at %>
+		<% dateb = date.strftime("%d/%m/%Y") %>
+
+		<li><%= link_to p.id,   panier_path(p.id) %></li> Creer le <%= dateb %> 
+		<% if p.validated? %>
+			Validé
+		<% else %>
+			Non validé
+		<% end %>
+		<br />
+
+	<% end %>
+</p>
+
+	<%= form_tag("/delete", method: "get") do %>        				
+	  	<%= hidden_field_tag(:id, @user.id) %>
+	  	<%= submit_tag("Bannir") %>
+	<% end %>

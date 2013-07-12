@@ -1,5 +1,5 @@
 Inedite::Application.routes.draw do
-  resources :articles, :paniers, :users
+  resources :articles, :paniers
 
   devise_for :users
 
@@ -8,6 +8,7 @@ Inedite::Application.routes.draw do
   root to: 'static_pages#home'
 
 #Users
+  match '/users/:id',  to: 'users#show'
   match '/signup',  to: 'users#new'
   match '/gestionUser', to: 'users#gestionUser'
 
