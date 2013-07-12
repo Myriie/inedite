@@ -51,7 +51,7 @@ td {
 						<% end %>
 
 	        		<td>
-	        			<%= form_tag("/delete", method: "get") do %>        				
+	        			<%= form_tag(article_path(art.id), method: "delete") do %>        				
 					  	<%= hidden_field_tag(:id, art.id) %>
 					  	<%= submit_tag("Supprimer") %>
 						<% end %>
