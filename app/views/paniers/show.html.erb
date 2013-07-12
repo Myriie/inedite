@@ -1,4 +1,4 @@
-<h1>Mon panier</h1>
+<h1>Panier du client</h1>
 
 <% sum = 0 %>
 
@@ -15,10 +15,7 @@
 		  	<%= submit_tag("Edit") %>
 	  	<%end%>
 
-		<%= form_tag("/destroy", method: "get") do %>
-		  <%= hidden_field_tag(:article_id, article.id) %>
-		  <%= submit_tag("Enlever du panier") %>
-	  	<%end%>
+
 	</p>
 
 
@@ -27,40 +24,3 @@
 <p>
 	Total: <%= sum %> €
 
-		<%= form_tag("/flush", method: "get") do %>
-		  <a id="clickme" class="btn btn-primary">Vider le Panier</a></br>
-		  <p id="sure" style="display:none">Etes vous sur ? 
-		  	<input class ="btn" type="submit" name="Oui" value="Oui">
-		  	<a href="/panier" class ="btn">Non</a>
-		  </p>
-	  	<%end%>
-
-</p>
-
-
-
-
-  <script>
-  	var clicked = false;
-    var element = document.getElementById('clickme');
-    var sure = document.getElementById('sure');
- 
-	  element.onclick = function() {
-
-	  	if (clicked) {
-	  		sure.style.display = 'none';
-
-
-
-		}
-		else {
-			sure.style.display = 'inline';
-
-		}
-
-		clicked=!clicked;
-
-	  };
-  </script>
-
-      

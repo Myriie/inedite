@@ -1,6 +1,8 @@
 <style>
 
-
+th {
+	color: blue;
+}
 
 td {
 	border: solid black 1px;
@@ -24,21 +26,24 @@ td {
 
 	  		<% @paniers.each do |p| %>
 
-	  		<% id_client = p.user_id %>
-	  		<% nom_client = p.user.nom %>
-	  		<% prenom_client = p.user.prenom %>
-	  	
+		  		<% id_client = p.user_id %>
+		  		<% nom_client = p.user.nom %>
+		  		<% prenom_client = p.user.prenom %>
 	  			<tr>
 			       	<td> <%= p.id %> 
 			    
-			       	<td> <%= nom_client%> <%= prenom_client%> 
+			       	<td>	<%= id_client%>. <%= nom_client%> <%= prenom_client%>
+			       			<li><%= link_to "Panier du client",   panier_path(p.id) %></li>
 			    
 			       	<td> <%= p.created_at %>
 
 			       	<td> <%= p.validated %>
 
-			       	<td> 
-			
-		
+			       	<td>	<% if p.validated? %> 	
+				       			<%= form_tag("/edit", method: "get") do %>
+							  	<%= hidden_field_tag(:id, p.id) %>
+							  	<%= submit_tag("Confirmation") %>
+								<% end %>
+							<%end%>
 			<% end %>
 	</table>

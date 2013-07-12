@@ -10,6 +10,10 @@ class PaniersController < ApplicationController
   def index
   end
 
+  def show
+    @panier = Panier.find(params[:id])
+  end
+
 
   def add
     list_res = @panier.reservations.all
