@@ -1,9 +1,13 @@
 class ArticlesController < ApplicationController
   before_filter :get_all_articles , :only =>[:index,:gestionArticle,:cat]
-  before_filter :get_article_by_id, :only => [:show,:edit]
+  before_filter :get_article_by_id, :only => [:show,:edit,:destroy]
 
   def new
     @article = Article.new
+  end
+
+
+  def gestionArticle
   end
 
 
@@ -36,7 +40,14 @@ class ArticlesController < ApplicationController
   end
 
 
-  def gestionArticle
+  def destroy
+    if @article.destroy.save
+      flash[:success] = "Article destroyed!"
+      redirect_to '/gestionArticle'
+    else
+      flash[:error] = "Ne marche pas"
+      render article_path(@article.id)
+    end
   end
 
 
