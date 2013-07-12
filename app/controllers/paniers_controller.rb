@@ -12,6 +12,13 @@ class PaniersController < ApplicationController
 
   def show
     @panier = Panier.find(params[:id])
+          list_art = Article.all
+      @panier.reservations.all.each do |res|
+        index = list_art.index {|e| e.id == res.article_id}
+        if index.nil?
+          res.destroy.save
+        end
+      end
   end
 
 
@@ -93,6 +100,14 @@ protected
           @panier = current_user.paniers.last
         end
       end
+      list_art = Article.all
+      @panier.reservations.all.each do |res|
+        index = list_art.index {|e| e.id == res.article_id}
+        if index.nil?
+          res.destroy.save
+        end
+      end
+
     end
 
 
@@ -132,6 +147,5 @@ protected
         redirect_to root_path
       end
     end
-
 
 end
