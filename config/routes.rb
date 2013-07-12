@@ -1,5 +1,5 @@
 Inedite::Application.routes.draw do
-  resources :articles, :paniers
+  resources :articles, :paniers, :users
 
   devise_for :users
 
@@ -9,6 +9,7 @@ Inedite::Application.routes.draw do
 
 #Users
   match '/signup',  to: 'users#new'
+  match '/gestionUser', to: 'users#gestionUser'
 
 #Panier
   match '/panier', to: 'paniers#index'

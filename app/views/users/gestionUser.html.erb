@@ -1,0 +1,62 @@
+<style>
+th{
+	color: green;
+}
+
+td {
+	border: solid black 1px;
+}
+
+</style>
+
+
+
+<h1>Bienvenue sur la page de gestion des clients</h3>
+
+	<table>
+  		<tr>
+	       	<th>Id</th>
+	       	<th>Nom</th>
+	       	<th>Prenom</th>
+	       	<th>Mail</th>
+	       	<th>Adresse</th>
+	       	<th>Date d'inscription</th>
+	       	<th>Ses paniers</th>
+	       	<th>Admin</th>
+	       	<th>Bannir</th>
+	       		       	
+	  	</tr>
+
+	  		<% @users.each do |u| %>
+
+<% @pan = Panier.where('user_id' => u.id) %>
+
+	  	
+	  			<tr>
+			       	<td> <%= u.id %> 
+			    
+			       	<td> <%= u.nom %> 
+			    
+			       	<td> <%= u.prenom %>
+			    
+			       	<td> <%= u.email %>
+
+			       	<td> <%= u.adresse %>
+
+			       	<td> <%= u.created_at %>
+
+			       	<td> 	Nombre de panier:<%= @pan.length %><br />
+			       			Dernier panier: 
+			       			<li><%= link_to @pan.last.id,   panier_path(@pan.last.id) %></li>
+
+			       	<td> <%= u.admin %>
+
+	        		<td>
+	        			<%= form_tag("/delete", method: "get") do %>        				
+					  	<%= hidden_field_tag(:id, u.id) %>
+					  	<%= submit_tag("Bannir") %>
+						<% end %>
+				</tr>
+		
+			<% end %>
+	</table>
