@@ -37,9 +37,12 @@ ActiveRecord::Schema.define(:version => 20130730081711) do
   create_table "others", :force => true do |t|
     t.integer  "stock"
     t.integer  "reserve"
+    t.integer  "article_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "others", ["article_id", "created_at"], :name => "index_others_on_article_id_and_created_at"
 
   create_table "paniers", :force => true do |t|
     t.integer  "user_id"
