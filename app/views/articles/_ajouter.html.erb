@@ -1,6 +1,16 @@
 
 <%= form_tag("/add", method: "post") do %>
-  <%= number_field_tag(:quantity, nil, :min =>1, :max => 5) %>
+
+<% if @article.clothes.any? %>
+	<% dispo = 15 %>
+	<% else %>
+	<% o = Other.where('article_id' => @article.id) %>
+	<% stock = o.first.stock %>
+	<% reserve = o.first.reserve %>
+	<% dispo = stock - reserve %>
+<% end %>
+
+  <%= number_field_tag(:quantity, nil, :min =>1, :max => dispo) %>
   <%= hidden_field_tag(:article_id, @article.id) %>
   <%= submit_tag("Ajouter au panier") %>
 <% end %>

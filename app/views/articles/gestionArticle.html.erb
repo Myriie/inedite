@@ -11,7 +11,7 @@ td {
 
 <h1>Bienvenue sur la page de gestion des articles de la boutique</h3>
 
-	<a href="/articles/new">Creer un nouvel article</a><br />
+	<p><a href="/articles/new">Creer un nouvel article</a><br /></p>
 
 	<table>
   		<tr>
@@ -20,6 +20,9 @@ td {
 	       	<th>Prix</th>
 	       	<th>Type</th>
 	       	<th>Combinaisons disponibles</th>
+	       	<th>Stock</th>
+	       	<th>Quantité réservée</th>
+	       	<th>Quantité disponible</th>
 	       	<th>Modifier</th>
 	       	<th>Supprimer</th>
 	  	</tr>
@@ -43,7 +46,53 @@ td {
 				       				<br />
 				       			<% end %>
 	        				<% end %> 
+
+	        		<td>	
+
+	        			<% if art.clothes.any? %>
+			       				<% @vet = art.clothes.find(:all)%>
+				       			<% @vet.each do |v| %>
+				       			<%= v.stock %>
+				       				<br />
+				       			<% end %>
+
+				       			<% else %>
+				       			<% oth = Other.where('article_id' => art.id) %>
+				       			<%= oth.first.stock %>
+	        				<% end %> 
+
+
+	        		<td>	<% if art.clothes.any? %>
+			       				<% @vet = art.clothes.find(:all)%>
+				       			<% @vet.each do |v| %>
+				       				<%= v.reserve %>
+				       				<br />
+				       			<% end %>
+
+				       			<% else %>
+				       			<% oth = Other.where('article_id' => art.id) %>
+				       			<%= oth.first.reserve %>
+	        				<% end %> 
+	        				
+
 	        	
+	        		<td>	<% if art.clothes.any? %>
+			       				<% @vet = art.clothes.find(:all)%>
+				       			<% @vet.each do |v| %>
+
+				       				<% if !(v.stock.nil?) %>
+				       				 <%= v.stock %> - <%= v.reserve %> = <%= v.stock - v.reserve %> 
+				       				<%end%>
+
+				       				<br />
+				       			<% end %>
+	        				
+				       			<% else %>
+				       			<% oth = Other.where('article_id' => art.id) %>
+				       			<%= oth.first.stock %> - <%= oth.first.reserve %> = <%= oth.first.stock - oth.first.reserve %>
+	        				<% end %> 
+
+
 	        		<td> <li><%= button_to "Modifier",   edit_article_path(art.id), :method => :get %></li>
 
 

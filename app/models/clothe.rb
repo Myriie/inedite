@@ -1,5 +1,5 @@
 class Clothe < ActiveRecord::Base
-  attr_accessible :size, :color, :article_id 
+  attr_accessible :size, :color, :article_id, :stock, :reserve
 
   belongs_to :article
 
