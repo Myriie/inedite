@@ -1,16 +1,23 @@
+<% @type_art = Article.find(:all, :select => 'DISTINCT type_art')%>
+
 <h1> Modifier un article </h1>
 
 <h3><%= @article.title %></h3>
 
 <p>
-	<%= form_tag("/delete", method: "get") do %>
+
+	<%=form_tag(article_path(@article.id), method: :put) do %>
 	
 		Description:<br />
 		<%= text_field_tag(:description, @article.description) %><br />
 
  		Prix : <%= number_field_tag(:price, @article.price) %>€<br />
 
- 		Type: <%= text_field_tag(:type_art, @type_art) %><br />
+ 		    <div id="field">
+      <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => @article.type_art}, :id =>"type_art")%>
+    		</div>
+
+    <a id="change">Cliquez ici pour changez la méthode de selection du type</a>
 
   		<%= submit_tag("Modifier") %>
 
@@ -25,4 +32,32 @@
 	<%= render '/clothes/delete' %>
 	<%end%>
 </p>
+
+  <script>
+    var clicked = false;
+    var element = document.getElementById('change');
+    var field = document.getElementById('field');
+    var child = document.getElementById('type_art');
+
+    var newField = document.createElement('input');
+    newField.type="text";
+    newField.name="article[type_art]"
+ 
+    element.onclick = function() {
+
+      if (!clicked) {
+        field.removeChild(child);
+        field.appendChild(newField);
+        
+      }
+
+      else {
+        location.reload();
+      }
+
+
+      clicked=!clicked;
+
+    };
+  </script>
 

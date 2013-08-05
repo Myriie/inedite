@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :get_all_articles , :only =>[:index,:gestionArticle,:cat]
-  before_filter :get_article_by_id, :only => [:show,:edit,:destroy]
+  before_filter :get_article_by_id, :only => [:show,:edit,:destroy,:update]
 
   def new
     @article = Article.new
@@ -48,6 +48,23 @@ class ArticlesController < ApplicationController
       flash[:error] = "Ne marche pas"
       render article_path(@article.id)
     end
+  end
+
+  def update
+    @article.price = params[:price].to_i
+    @article.description = params[:description]
+    @article.type_art = params[:type_art]
+    
+    if @article.save
+      flash[:success] = "Article modifie"
+      redirect_to article_path(@article.id)
+
+    else
+      flash[:error] = "Modification impossible"
+      redirect_to edit_article_path(@article.id)
+    end
+
+
   end
 
 

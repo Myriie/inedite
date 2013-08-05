@@ -6,6 +6,8 @@ class Clothe < ActiveRecord::Base
   validates :article_id, :presence => true
   validates :color, :presence => true
   validates :size, :presence => true
+  validates :stock, :presence => true
+  validates :reserve, :presence => true
 
   default_scope order: 'clothes.created_at DESC'
 end

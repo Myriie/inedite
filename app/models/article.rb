@@ -19,4 +19,5 @@ class Article < ActiveRecord::Base
   validates :price, :presence => true
 
   has_many :clothes, dependent: :destroy
+  has_one :other, dependent: :destroy
 end
