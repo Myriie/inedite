@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     @article  = Article.new(params[:article])
     if @article.save
       flash[:success] = "Article created!"
-      redirect_to root_path
+      redirect_to article_path(@article.id)
     else
       flash[:error] = "Ne marche pas"
       render 'new'
@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
   def update
     @article.price = params[:price].to_i
     @article.description = params[:description]
-    @article.type_art = params[:type_art]
+    @article.type_art = params[:article][:type_art]
     
     if @article.save
       flash[:success] = "Article modifie"
