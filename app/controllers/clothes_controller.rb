@@ -13,6 +13,8 @@ class ClothesController < ApplicationController
     @clothe.size= params[:size]
     @clothe.color= params[:color]
     @clothe.article_id= params[:article_id]
+    @clothe.stock=params[:stock].to_i
+    @clothe.reserve= 0
   	if @clothe.save
     		flash[:success] = "Clothe created!"
     		redirect_to '/admin'
