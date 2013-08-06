@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730081711) do
+ActiveRecord::Schema.define(:version => 20130806102122) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -57,8 +57,10 @@ ActiveRecord::Schema.define(:version => 20130730081711) do
     t.integer  "article_id"
     t.integer  "panier_id"
     t.integer  "quantity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "product_id"
+    t.string   "product_type"
   end
 
   add_index "reservations", ["article_id"], :name => "index_reservations_on_article_id"
