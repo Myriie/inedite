@@ -1,5 +1,5 @@
 Inedite::Application.routes.draw do
-  resources :articles, :paniers
+  resources :articles, :paniers, :clothes
 
   devise_for :users
 

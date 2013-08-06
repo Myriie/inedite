@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
   before_filter :get_article_by_id, :only => [:show,:edit,:destroy,:update]
 
   def new
-    @article = Article.new
   end
 
 
@@ -25,12 +24,28 @@ class ArticlesController < ApplicationController
 
 
   def create
-    @article  = Article.new(params[:article])
+    @article  = Article.new
+    @article.title = params[:title]
+    @article.description = params[:description]
+    @article.price = params[:price]
+    @article.type_art = params[:article][:type_art]
+
+   
+
     if @article.save
-      flash[:success] = "Article created!"
-      redirect_to article_path(@article.id)
-    else
-      flash[:error] = "Ne marche pas"
+        oth = Other.new 
+        oth.article_id = @article.id
+        oth.stock = params[:stock]
+        oth.reserve = 0
+      if oth.save
+        flash[:success] = "Article created!"
+        redirect_to article_path(@article.id)
+        else
+        flash[:error] = "Other Ne marche pas"
+        render 'new'
+      end    
+     else
+      flash[:error] = "Article Ne marche pas"
       render 'new'
     end
   end

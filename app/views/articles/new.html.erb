@@ -3,30 +3,33 @@
 
 
 <p>
-  <%= form_for @article do |f| %>
-    <%= render 'error_messages' %>
-    <%= f.label :titre %>
-      <%= f.text_field :title %>
-    <%= f.label :description %>
-      <%= f.text_area :description, size: "60x12" %>
-    <%= f.label :prix %>
-      <%= f.text_field :price %>
-   
-    <%= f.label :type_article %>
-    <div id="field">
+
+  <%=form_tag("/articles", method: "create") do %>
+  
+    Titre: <br />
+    <%= text_field_tag(:title) %> <br />
+
+    Description:<br />
+    <%= text_field_tag(:description) %><br />
+
+    Prix : <%= number_field_tag(:price) %>€<br />
+
+        <div id="field">
       <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :id =>"type_art")%>
-    </div>
-    <a id="change">Cliquez ici pour changez la méthode de selection du type</a>
-  </br>
+        </div>
 
+    <a id="change">Cliquez ici pour changez la méthode de selection du type</a> <br />
 
-    </br>
+    Quantité: <%= number_field_tag(:stock) %> <br />
 
-    <div class="actions">
-      <%= f.submit "Soumettre" %>
-    </div>
+      <%= submit_tag("Soumettre") %>
+
   <% end %>
 </p>
+
+
+
+
 
   <script>
     var clicked = false;

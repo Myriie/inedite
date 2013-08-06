@@ -28,7 +28,24 @@ class ClothesController < ApplicationController
 
 
   def edit
+    @vet = Clothe.find(params[:id])
  	end
+
+  def update
+    @vet = Clothe.find(params[:id])
+
+    respond_to do |quant|
+      if @vet.update_attributes(params[:post])
+      vet.html { redirect_to(@vet,
+                    :notice => 'Post was successfully updated.') }
+      vet.xml  { head :ok }
+    else
+      vet.html { render :action => "edit" }
+      vet.xml  { render :xml => @vet.errors,
+                    :status => :unprocessable_entity }
+    end
+  end
+end
 
 
   def delete

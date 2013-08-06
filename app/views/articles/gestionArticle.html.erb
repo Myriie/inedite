@@ -23,7 +23,7 @@ td {
 	       	<th>Stock</th>
 	       	<th>Quantité réservée</th>
 	       	<th>Quantité disponible</th>
-	       	<th>Modifier</th>
+	       	<th>Editer l'article</th>
 	       	<th>Supprimer</th>
 	  	</tr>
 
@@ -54,12 +54,24 @@ td {
 				       			<% @vet.each do |v| %>
 				       			<%= v.stock %>
 				       				<br />
-				       			<% end %>
+
+				       			<%= form_for(v) do |clo| %>
+				       				<%= clo.label :stock %>
+				        			<%= clo.number_field :stock %>
+				        			<div class="actions">
+								      	<%= clo.submit "Soumettre" %>
+								    </div>
+				        			<% end %>
+				        		
+				        		<% end %>
+
 
 				       			<% else %>
 				       			<% oth = Other.where('article_id' => art.id) %>
 				       			<%= oth.first.stock %>
 	        				<% end %> 
+	        				
+
 
 
 	        		<td>	<% if art.clothes.any? %>
@@ -90,14 +102,14 @@ td {
 				       			<% else %>
 				       			<% oth = Other.where('article_id' => art.id) %>
 				       			<%= oth.first.stock %> - <%= oth.first.reserve %> = <%= oth.first.stock - oth.first.reserve %>
-	        				<% end %> 
+	        				<% end %>       	
 
 
 	        		<td> <li><%= button_to "Modifier",   edit_article_path(art.id), :method => :get %></li>
 
 
 	        		<td>
-	        			<%= form_tag(article_path(art.id), method: "delete") do %>        		
+	        			<%= form_tag(article_path(art.id), method: "delete") do %>      
 	        			<%= hidden_field_tag(:id, art.id) %>
 					  	<%= submit_tag("Supprimer") %>
 						<% end %>
