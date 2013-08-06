@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
     @article  = Article.new
     @article.title = params[:title]
     @article.description = params[:description]
-    @article.price = params[:price]
+    @article.price = params[:price].to_f
     @article.type_art = params[:article][:type_art]
 
    
@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.price = params[:price].to_i
+    @article.price = params[:price].to_f
     @article.description = params[:description]
     @article.type_art = params[:article][:type_art]
     
