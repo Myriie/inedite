@@ -1,4 +1,6 @@
-<div class="span3">
+<div id="aside">
+
+<div class="bouton">
 		<ul class="nav nav-list">
 				<% cats = Article.all.map { |a| a.type_art } %>
 				<% cat = cats.uniq!.sort %>
@@ -9,4 +11,6 @@
                 <li><a href="/articles">Tous les articles</a></li>
 
               </ul>
+</div>
+
 </div>

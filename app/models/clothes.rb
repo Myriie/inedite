@@ -1,5 +1,5 @@
 class Clothe < ActiveRecord::Base
-  attr_accessible :article_id, :color, :size
+  attr_accessible :article_id, :color, :size, :stock, :reserve
   belongs_to :article
 
   validates :size, :presence => true

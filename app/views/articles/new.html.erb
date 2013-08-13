@@ -12,7 +12,7 @@
     Description:<br />
     <%= text_field_tag(:description) %><br />
 
-    Prix : <%= text_field_tag(:price, :step => 0.01) %>€<br />
+    Prix : <%= text_field_tag(:price) %>€<br />
 
         <div id="field">
       <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :id =>"type_art")%>

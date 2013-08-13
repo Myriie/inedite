@@ -8,9 +8,13 @@
     <%= render 'layouts/shim' %>    
   </head>
   <body>
+<div id="page">
     <!--Ajout du header par ruby-->
 
+<div id="banniere">
     <%= render 'layouts/header' %>
+</div>
+
     <div class="container-fluid">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
@@ -22,9 +26,13 @@
 
 
       <!-- Corp de page -->
+<div id="corps">
+
 <div class="span8 offset1">
       <%= yield %>
     </div>
+
+</div>
 
 
 
@@ -33,8 +41,11 @@
 
       <!--Ajout du footer par ruby-->
 
+
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
+
+</div>
   </body>
 </html>
