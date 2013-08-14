@@ -1,5 +1,27 @@
 
+
+
+<div class="span8">
+
+
+
+
 <%= form_tag("/add", method: "post") do %>
+
+
+ <% if @article.clothes.any? %>
+    	<select name="product_id">
+    		<% @article.clothes.all.each do |c|%>
+    			<option value="<%=c.id%>" ><%= c.size%>/<%= c.color%>
+    		<%end%>
+    	</select>
+    	<%= hidden_field_tag(:product_type, "clothe") %>
+    <% else %>
+    	<%= hidden_field_tag(:product_id, @article.other.id) %>
+    	<%= hidden_field_tag(:product_type, "other") %>
+    <% end %>
+
+    </br>
 
 <% if @article.clothes.any? %>
 	<% dispo = 15 %>
@@ -11,7 +33,12 @@
 <% end %>
 
   <%= number_field_tag(:quantity, nil, :min =>1, :max => dispo) %>
-  <%= hidden_field_tag(:article_id, @article.id) %>
+</br>
+
+
   <%= submit_tag("Ajouter au panier") %>
 <% end %>
+
+
+</div>
 

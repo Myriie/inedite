@@ -2,7 +2,7 @@ class PaniersController < ApplicationController
 
    before_filter :login, :only => [:index,:destroy,:add,:edit,:flush]
    before_filter :set_panier, :only => [:destroy,:index, :add,:edit,:flush]
-   before_filter :set_article_id, :only => [:add,:destroy,:edit]
+   before_filter :set_product, :only => [:add,:destroy,:edit]
    before_filter :set_quantity, :only => [:add, :edit]
    before_filter :panier_vide, :only => [:destroy,:edit,:flush]
 
@@ -14,20 +14,29 @@ class PaniersController < ApplicationController
     @panier = Panier.find(params[:id])
           list_art = Article.all
       @panier.reservations.all.each do |res|
-        index = list_art.index {|e| e.id == res.article_id}
+        if res.product_type=="clothe"
+          index = list_art.index {|e| e.id == res.clothe.article_id}
+        else
+          index = list_art.index {|e| e.id == res.other.article_id}
+        end
+
         if index.nil?
           res.destroy.save
-        end
+          end
       end
   end
 
 
   def add
     list_res = @panier.reservations.all
-    index = list_res.index {|e| e.article_id == @article.id}
-
+      if @product_type=="clothe"
+        index = list_res.index {|e| e.clothe.article_id == @article.id}
+      else
+        index = list_res.index {|e| e.other.article_id == @article.id}
+      end
+    
     if index.nil?
-      res = Reservation.new(article_id: @article.id,panier_id: @panier.id, quantity: @quantity)
+      res = Reservation.new(article_id: @product.article.id,product_id: @product.id, product_type: @product_type, panier_id: @panier.id, quantity: @quantity)
     else
       res = list_res.at(index)
       res.quantity+=@quantity
@@ -39,7 +48,11 @@ class PaniersController < ApplicationController
 
   def destroy
     list_res = @panier.reservations.all
-    index = list_res.index {|e| e.article_id == @article.id}
+          if @product_type=="clothe"
+        index = list_res.index {|e| e.clothe.article_id == @product.article.id}
+      else
+        index = list_res.index {|e| e.other.article_id == @product.article.id}
+      end
 
     if index.nil?
       redirect_to '/panier'
@@ -111,16 +124,21 @@ protected
     end
 
 
-    def set_article_id
-      if params[:article_id].to_i == 0
+    def set_product
+      if params[:product_id].to_i == 0
         flash[:error] = "Vous ne pouvez pas tapez ce que vous voulez dans l'url"
         redirect_to root_path
       end
-      unless !params[:article_id].nil?
+      unless !params[:product_id].nil?
         flash[:error] = "Vous ne pouvez pas tapez ce que vous voulez dans l'url"
         redirect_to root_path
       end
-      @article = Article.find(params[:article_id].to_i)
+      @product_type = params[:product_type]
+      if @product_type =="clothe"
+        @product = Clothe.find(params[:product_id].to_i)
+      else
+        @product = Other.find(params[:product_id].to_i)
+      end
     end
 
 

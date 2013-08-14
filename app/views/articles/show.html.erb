@@ -5,19 +5,9 @@
 <p><%= @article.description %></p>
 <p>Prix : <%= @article.price %>€</p>
 
-<div class="span8">
-    <% if @article.clothes.any? %>
-        	<% @taille = @article.clothes.find(:all, :select => 'DISTINCT size')%>
-			<% @couleur = @article.clothes.find(:all, :select => 'DISTINCT color')%>
-				<p>Disponible en:
-						Taille: <br />
-						<%= collection_select(:clothe, :id, @taille, :id, :size, options ={:prompt => "-Choisir une taille"}, :class =>"taille") %><br />
-						Couleur:<br />
-						<%= collection_select(:clothe, :id, @couleur, :id, :color, options ={:prompt => "-Couleurs disponibles"}, :class =>"taille") %>
-				</p>
-    <% end %>
+
 
     <%= render 'articles/ajouter' %>
-</div>
+
 
 
