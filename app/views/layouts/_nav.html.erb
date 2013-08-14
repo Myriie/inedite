@@ -1,16 +1,19 @@
-<div id="aside">
 
-<div class="bouton">
-		<ul class="nav nav-list">
-				<% cats = Article.all.map { |a| a.type_art } %>
-				<% cat = cats.uniq!.sort %>
-                <li class="nav-header">Catégories</li>
-                <% cat.each do |c| %>
-                <li><a href="/categories/?type=<%=c%>"><%= c%></a></li>
-                <%end%>
-                <li><a href="/articles">Tous les articles</a></li>
+<div id = "aside">
 
-              </ul>
+	<ul class="nav-list">
+		<% cats = Article.all.map { |a| a.type_art } %>
+		<% cat = cats.uniq!.sort %>
+		<br />
+	    <li class="nav-header"><span>Catégories :</span></li> <br />
+	    <% cat.each do |c| %>
+	        <li><a href="/categories/?type=<%=c%>"><%= c%></a></li>
+	    <%end%>
+	    <li><a href="/articles"><span>Tous les articles</span></a></li>
+
+	              </ul>
+	
+
 </div>
 
-</div>
+

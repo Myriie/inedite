@@ -1,34 +1,67 @@
-
 <div id= "banniere">
+  <header class="navbar navbar-fixed-top navbar-inverse"> 
+    <nav>
 
-  
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-      <h1 class="titre"><%= image_tag("inedite4.png") %></h1>
+          <div class="bouton">
+            <ul>
 
-      <div class="bouton">
-        <nav>
-
-          <ul class="nav pull-right">
-            <li><%= link_to "Home",    root_path %></li>
-            <li><%= link_to "Help",    help_path %></li>
-            
-            <% if user_signed_in? %>
-              <li>Logged in as <strong><%= current_user.email %></strong>.</li>
-              <li><%= link_to "Panier", '/panier', :class => 'navbar-link'  %></li>
-              <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
-            <% else %>
-              <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
-              <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
-            <% end %>
-          </ul>
+              <li class="first"><%= link_to "Help",    help_path %></li>
+              <li><%= link_to "Home",    root_path %></li>
+              
+              <li><div id="titre">
+                <%= image_tag("inedite4.png") %>
+                  </div></li>
 
 
+            </ul>
+          </div>  
+      
 
+        <% if user_signed_in? %>
+
+         
+            <div class = "mail">
+              <ul>
+                <h5><li>Logged in as <strong ><%= current_user.email %></strong></li></h5>
+                <h5>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
+                </h5>
+              </ul>
+            </div>
+           
+
+            <div class="bouton">
+              <ul>
+
+                <li><%= link_to "Panier", '/panier', :class => 'navbar-link'  %></li>
+                <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+              </ul>
+            </div>
+         
+             
+        <% else %>
+
+            <div class="mail">
+              <ul>
+                <h5>
+                <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li></h5>
+                <h5>
+                <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li></h5>
+              </ul>
+            </div>
+          
+
+        <% end %>
+        
+
+      
+
+      
 
         </nav>
-      </div>
-    </div>
-  </header>
+    </header>
 </div>
+
+<div id="transition-header">
+</div>
+

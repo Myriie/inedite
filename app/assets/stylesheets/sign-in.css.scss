@@ -10,36 +10,3 @@ time, mark, audio, video {
        vertical-align: baseline;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
-#page
-{
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
-  position: relative;
-  text-align: justify;
-}
-
-#corps
-{
-  display: inline-block;
-  float: left;
-  
-}
-
-
-
-body
-{
-  width: 100%;
-  margin: 0 auto;
-  min-height: 100%;
-  position: relative;
-}

@@ -13,11 +13,9 @@ time, mark, audio, video {
 
 #banniere
 {
-  padding-top: 25px;
-  padding-left: 20px;
-  padding-bottom: 35px;
-  background-image: image-url("fond2.png");
+  padding: 0;
 }
+
 
 @font-face {
     font-family: 'FontleroyBrown';
@@ -33,28 +31,86 @@ p
 
 #banniere ul {
  padding:0;
- margin-top: 35px;
+ margin-top: 0 auto;
  list-style-type:none;
  }
 
 #banniere li {
  float:left; /*pour IE*/
  border-left:1px;
+ margin-top: 20px;
+
  }
+
+#banniere .mail {
+  background-image: image-url("fond2.png");
+  position: absolute;
+  box-shadow: 0px 3px 5px #C0C0C0; 
+  width: 100%;
+}
+
+
+#banniere .mail ul {
+  padding: 0;
+  margin-top: 0 auto;
+  list-style-type: none;
+  width: 100%;
+
+}
+
+#banniere .mail li
+{
+  foat:right;
+  border-left: 1px;
+  margin-top: 0;
+  width: 100%;
+}
+
+#banniere .mail h5, h5 a {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 0 auto;
+  margin-right: 20px;
+	color: #FFFAF0;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+}
+
+#banniere .mail h5 a:hover {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 0 auto;
+  margin-right: 20px;
+  color: #FF4500;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+}
+
+#banniere .mail h5 strong {
+  font-style: italic;
+}
 
 #banniere .bouton a
 {
-  font-style: bold;
-  margin:20px;
+  margin-top: 20px;
+  margin-left:60px;
+  margin-right: 60px;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  color: orange;
+  color: #696969;
   font-weight: bold;
   text-decoration: none;
   opacity: 1;
+  text-shadow: 2px 2px 2px #C0C0C0;
+  line-height: 134px;
 }
 
+#banniere .bouton ul li.first {
+  margin-left: 80px;
+}
 
 #banniere .bouton a:hover 
 {
@@ -62,17 +118,29 @@ p
   color: #FF4500;
 }
 
+
+#transition-header
+{
+ clear:both; 
+}
+
+#titre
+{
+  text-align: center;
+}
+
 #footer
 {
   background-image: image-url("fond2.png");
   position: absolute;
-  bottom: -500px; left: 0;
+  bottom: 0; left: 0;
   width: 100%;
+  box-shadow: 0px -3px 5px #C0C0C0; 
 }
 
 #footer ul {
  padding:0;
- margin-top: 35px;
+ margin-top: 0px;
  list-style-type:none;
  }
 
@@ -88,7 +156,7 @@ p
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  color: orange;
+  color: #FFFAF0;
   font-weight: bold;
   text-decoration: none;
   opacity: 1;
