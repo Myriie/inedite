@@ -1,0 +1,49 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, code, em, img, strike, strong, sub, sup, tt, var,
+b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+       margin: 0;
+       padding: 0;
+       border: 0;
+       font-size: 100%;
+       font: inherit;
+       vertical-align: baseline;
+}
+#show-article
+{
+	border: solid;
+	margin-left: 100px;
+}
+#show-article #titre-article
+{
+	font-size: 30px;
+  	font-weight: bold;
+  	color: #696969;
+  	text-shadow: 2px 2px 2px #C0C0C0;
+  	text-align: center;
+  	
+}
+#show-article #description-article
+{
+	display: inline-block;
+	float: left;
+	font-size: 17px;
+	padding-bottom: 50px;
+	padding-top: 50px;
+	padding-left: 25px;
+}
+#show-article #image-article
+{
+	display: inline-block;
+	float: left;
+	padding-left: 0;
+	padding-right: 35px;
+
+}
+#show-article #corps-article
+{
+	padding-top: 75px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 250px;
+}

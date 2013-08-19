@@ -1,0 +1,49 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, code, em, img, strike, strong, sub, sup, tt, var,
+b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+       margin: 0;
+       padding: 0;
+       border: 0;
+       font-size: 100%;
+       font: inherit;
+       vertical-align: baseline;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#page
+{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  text-align: justify;
+    background-image: url("fond-site3.png");
+    background-size: 100% 100%;
+}
+
+#corps
+{
+  display: inline-block;
+  float: left;
+
+}
+
+
+
+body
+{
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100%;
+  position: relative;
+
+}
+
