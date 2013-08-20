@@ -1,25 +1,50 @@
-<div id="edit_profil">
-	<h1>Sign in</h1>
+<div class="login">
+	
+	<h2>Log in</h2>
+
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
 
+			<div class="normal">
+				<%= f.label :email %><br />
+				<%= f.email_field :email, :autofocus => true %>
 
-	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-	  <div><%= f.label :email %><br />
-	  <%= f.email_field :email, :autofocus => true %></div>
+			</div>
 
-	  <div><%= f.label :password %><br />
-	  <%= f.password_field :password %></div>
+			<div class="normal">
+				<br />
+				<%= f.label :password %><br />
+			  	<%= f.password_field :password %>
+			  	<br />
+			</div>
 
-	  <% if devise_mapping.rememberable? -%>
-	    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-	  <% end -%>
+			<% if devise_mapping.rememberable? -%>
+				
+				<div class="keeplogin">
+					<br />
+					<div id="loginkeeping">
+					<%= f.check_box :remember_me %>
+					</div>
+				
+					<div class="box">
+					<%= f.label :remember_me %>
+					</div>
+					
+				</div>
+			<% end -%>
 
-	  <div><%= f.submit "Sign in" %></div>
-	<% end %>
+			<div class="button_login">
+				<div>
+					<br />
+					<%= f.submit "Sign in" %>
 
-
-
-	<%= render "devise/shared/links" %>
-
+				</div>
+			</div>
+		<% end %>
+	
+	<div class="autre">
+		<br />
+		<%= render "devise/shared/links" %>
+	</div>
 </div>
-</div>
+

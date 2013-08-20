@@ -9,11 +9,11 @@ time, mark, audio, video {
        font: inherit;
        vertical-align: baseline;
 }
-#edit_profil{
+.login{
     position: relative;
     top: 0px;
     width: 400px; 
-    padding: 18px 35px 150px 35px;
+    padding: 18px 35px 190px 35px;
     margin: 0 0 0px 0px;
     background: rgb(247, 247, 247);
     border: 1px solid rgba(147, 184, 189,0.8);
@@ -22,10 +22,10 @@ time, mark, audio, video {
         0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
     border-radius: 5px;
 }
-#edit_profil{
+.login{
     z-index: 22;
 }
-#edit_profil h2{
+.login h2{
     font-size: 48px;
     color: rgb(6, 106, 117);
     padding: 2px 0 10px 0;
@@ -33,7 +33,7 @@ time, mark, audio, video {
     text-align: center;
     padding-bottom: 30px;
 }
-#edit_profil h2{
+.login h2{
     background: 
     -webkit-repeating-linear-gradient(-45deg, 
         rgb(18, 83, 93) , 
@@ -44,7 +44,7 @@ time, mark, audio, video {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
-#edit_profil .normal input{
+.login .normal input{
     width: 92%;
     margin-top: 4px;
     padding: 10px 5px 10px 32px;    
@@ -54,18 +54,70 @@ time, mark, audio, video {
     box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
     transition: all 0.2s linear;
 }
-#edit_profil input:hover{
+.login input:hover{
     background: #00CED1;
 }
-.button_edit{
+.login .normal label{
+    font-size: 18px;
+    color: rgb(6, 106, 117);
+    text-align: right;
+}
+.login .keeplogin .box label{
+    font-size: 15px;
+    color: rgb(6, 106, 117);
+    font-style: italic;
+    padding-right: 15px;
+}
+.login .keeplogin #loginkeeping{
+    float: left;
+    padding-right: 5px; 
+}
+.login .button_login{
+    clear: both;
+    float: right;
+}
+
+.login .button_login input{
+    width: 100px;
+    cursor: pointer;    
+    background: rgb(61, 157, 179);
+    padding: 5px 5px;
+    color: #fff;
+    font-size: 24px;    
+    border: 1px solid rgb(28, 108, 122);    
+    margin-bottom: 10px;    
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px; 
+    -webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+            0px 0px 0px 3px rgb(254, 254, 254),
+            0px 5px 3px 3px rgb(210, 210, 210);
+       -moz-box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+            0px 0px 0px 3px rgb(254, 254, 254),
+            0px 5px 3px 3px rgb(210, 210, 210);
+            box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+            0px 0px 0px 3px rgb(254, 254, 254),
+            0px 5px 3px 3px rgb(210, 210, 210);
+    -webkit-transition: all 0.2s linear;
+       -moz-transition: all 0.2s linear;
+         -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+}
+.login .button_login input:hover{
+    background: rgb(74, 179, 198);
+}
+.autre{
+    clear: both;
     position: absolute;
     color: rgb(127, 124, 124);
     left: 0px;
-    height: 50px;
+    height: 20px;
     width: 400px;
-    padding: 20px 35px 78px 35px;
-    font-size: 20px;
-    text-align: center;
+    margin-top: 90px;
+    padding: 0px 35px 78px 35px;
+    font-size: 15px;
+    text-align: right;
     border-top: 1px solid rgb(219, 229, 232);
     border-radius: 0 0  5px 5px;
     background: rgb(225, 234, 235);
@@ -77,31 +129,28 @@ time, mark, audio, video {
     rgb(247, 247, 247) 30px
     );
 }
-#edit_profil .button_edit input {
+
+.login .autre a {
     display: inline-block;
     font-weight: bold;
-    width: 400px;
     background: rgb(247, 248, 241);
-    padding: 9px 5px;
+    padding: 2px 6px;
     color: rgb(29, 162, 193);
-    margin-left: 0;
+    margin-left: 10px;
     text-decoration: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
     border-radius: 4px;
     border: 1px solid rgb(203, 213, 214);
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s  linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s  linear;
     transition: all 0.4s  linear;
+    margin-bottom: 15px;
 }
-#edit_profil .button_edit .update_profil input:hover {
-    color: black;
-    background-color: #98FB98;
-    border: 1px solid #00FF00;
-}
-#edit_profil .button_edit .delete_profil input:hover {
-    color: black;
-    background-color: #FA8072;
-    border: 1px solid #FF0000;
-}
-#edit_profil .normal label{
-    font-size: 18px;
-    color: rgb(6, 106, 117);
-    text-align: right;
+.login .autre a:hover {
+    color: rgb(57, 191, 215);
+    background: rgb(247, 247, 247);
+    border: 1px solid rgb(74, 179, 198);
 }
