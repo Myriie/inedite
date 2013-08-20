@@ -1,3 +1,4 @@
+<div id="corps">
 <a href = "/gestionUser">Visualiser tous les clients</a><br />
 
 <% if @user.admin? %>
@@ -45,3 +46,5 @@
 	  	<%= hidden_field_tag(:id, @user.id) %>
 	  	<%= submit_tag("Bannir") %>
 	<% end %>
+
+</div>

@@ -15,11 +15,12 @@ time, mark, audio, video {
   	color: #696969;
   	text-shadow: 2px 2px 2px #C0C0C0;
   	text-align: center;
-  	margin-bottom: 35px;
+    padding-top: 50px;
+  	padding-bottom: 50px;
 }
 .vignette{
 	margin-bottom: 30px;
-	border: solid 1px;
+	border-bottom: dotted 1px;
 }
 .vignette .image-vignette{
 	float: left;

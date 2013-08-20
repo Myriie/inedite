@@ -27,6 +27,8 @@ body {
   margin: 0 auto;
   min-height: 100%;
   position: relative;
+  background-color: #F0F8FF;
+  background-size: auto auto;
 }
 #page
 {
@@ -35,25 +37,33 @@ body {
   position: relative;
   min-height: 100%;
   text-align: justify;
-  background-image: url("fond-site3.png");
   background-size: 100% 100%;
+}
+#grossepage{
+  position: relative;
+  top: 0;
+  width: 600px;
+  padding: 0 0 50px 0;
+  min-height: 100%;
+  margin: 0 0 0 400px;
 }
 #corps
 {
   position: relative;
+  top: 0;
+  width: 600px;
+  padding: 50px 50px 20px 50px;
   min-height: 100%;
-  margin: 0 auto;
-  padding-bottom: 70px;
-  width: 600px; 
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px;
 }
-#body {
-  display: inline-block;
-  float: left;
-}
+
 #footer
 {
   background-image: url("fond2.png");
   position: absolute;
+  margin-top: 0;
   bottom: 0; left: 0;
   width: 100%;
   box-shadow: 0px -3px 5px #C0C0C0; 
@@ -63,4 +73,7 @@ body {
   padding-bottom: 50px;
   margin: 0 auto;
 }
-
+#dernier-element{
+  margin: 0;
+  padding-bottom: 4em;
+}

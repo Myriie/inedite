@@ -1,10 +1,16 @@
-<div class="titre_categorie">
-	<h1><%=@type%></h1>
-</div>
+<div id="corps">
+<div id="liste_categorie">
+	<div class="titre_categorie">
+		<h1><%=@type%></h1>
+	</div>
 
-<% @articles.each do |f| %>
-	<% if f.type_art==@type%>
-		<%@f=f%>
-		<%= render 'articles/vignette' %>
-	<%end%>
-<% end %>
+	<% @articles.each do |f| %>
+		<% if f.type_art==@type%>
+			<%@f=f%>
+			<%= render 'articles/vignette' %>
+		<%end%>
+	<% end %>
+	
+
+</div>
+</div>

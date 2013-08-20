@@ -13,8 +13,8 @@ time, mark, audio, video {
     position: relative;
     top: 0px;
     width: 400px; 
-    padding: 18px 50px 120px 50px;
-    margin: 0 0 35px 40px;
+    padding: 18px 35px 150px 35px;
+    margin: 0 0 0px 0px;
     background: rgb(247, 247, 247);
     border: 1px solid rgba(147, 184, 189,0.8);
     box-shadow: 
@@ -57,17 +57,17 @@ time, mark, audio, video {
 }
 
 #edit_profil input:hover{
-    background: rgb(74, 179, 198);
+    background: #00CED1;
 }
 .button_edit{
     position: absolute;
     color: rgb(127, 124, 124);
     left: 0px;
-    height: 20px;
-    width: 440px;
-    padding: 17px 30px 100px 30px;
-    font-size: 16px ;
-    text-align: right;
+    height: 50px;
+    width: 400px;
+    padding: 20px 35px 78px 35px;
+    font-size: 20px;
+    text-align: center;
     border-top: 1px solid rgb(219, 229, 232);
     border-radius: 0 0  5px 5px;
     background: rgb(225, 234, 235);
@@ -83,9 +83,9 @@ time, mark, audio, video {
     display: inline-block;
     font-weight: bold;
     background: rgb(247, 248, 241);
-    padding: 2px 6px;
+    padding: 9px 5px;
     color: rgb(29, 162, 193);
-    margin-left: 10px;
+    margin-left: 0;
     text-decoration: none;
     border-radius: 4px;
     border: 1px solid rgb(203, 213, 214);
