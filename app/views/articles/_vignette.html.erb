@@ -1,17 +1,30 @@
-<div class="thumbnail">
-    <h3><a href="/articles/<%= @f.id %>"><%= @f.title %></a></h3>
+<div class="vignette">
+
+    <h3><a href="/articles/<%= @f.id %>"><%= @f.title %></a></h3><br />
+
+    <div class="image-vignette">
+            <%= image_tag("pikachu.png", :size => "75x95") %>
+    </div>
+
     <p><%= @f.description %></p>
+    
     <p><strong>Prix : <%= @f.price %>€</strong></p>
+    
     <% if @f.clothes.any? %>
     	<p>Taille disponible :
     	<% @f.clothes.each do |c|%>
     		<%= c.size %> 
     	<% end %>
-    </p>
-    <p>Disponible en:
-    	<% @f.clothes.each do |c|%>
-    		<li><%= c.size %> / <%= c.color %></li>
-    	<% end %>
-    </p>
+        </p>
+        
+        <p>Disponible en:
+        	<% @f.clothes.each do |c|%>
+        		<li><%= c.size %> / <%= c.color %></li>
+        	<% end %>
+        </p>    
     <% end %>
-  </div>
+
+    <div id="transition-vignette">
+    </div>
+
+</div>

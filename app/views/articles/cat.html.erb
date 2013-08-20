@@ -1,9 +1,10 @@
-<h1><%=@type%></h1>
+<div class="titre_categorie">
+	<h1><%=@type%></h1>
+</div>
+
 <% @articles.each do |f| %>
-<% if f.type_art==@type%>
-<%@f=f%>
-
-<%= render 'articles/vignette' %>
-
-<%end%>
+	<% if f.type_art==@type%>
+		<%@f=f%>
+		<%= render 'articles/vignette' %>
+	<%end%>
 <% end %>

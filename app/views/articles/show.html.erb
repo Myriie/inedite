@@ -1,27 +1,21 @@
 <div id="show-article">
-
 	<% provide(:title, @article.title) %>
 
-	<div id="titre-article">
+	<div class="titre-article">
 		<h1><%= @article.title %></h1>
 	</div>
 
-<div id="corps-article">
-	<div id="image-article">
-		<%= image_tag("pikachu.png", :size => "200x225") %>
+	<div id="corps-article">
+		<div id="image-article">
+			<%= image_tag("pikachu.png", :size => "125x150") %>
+		</div>
+
+		<div id="description-article">
+			<p><%= @article.description %></p>
+			<p>Prix : <%= @article.price %>€</p>
+		    <%= render 'articles/ajouter' %>
+		</div>
 	</div>
-
-	<div id="description-article">
-		<p><%= @article.description %></p>
-		<p>Prix : <%= @article.price %>€</p>
-	
-
-
-
-	    <%= render 'articles/ajouter' %>
-	</div>
-</div>
-
 </div>
 
 

@@ -1,7 +1,10 @@
-<h1>Tous les articles de la boutique</h1>
-<% @articles.each do |f| %>
-<% @f = f %>
+<div class="titre_categorie">
+	<h1>Tous les articles de la boutique</h1>
+</div>
 
-<%= render 'articles/vignette' %>
+	<% @articles.each do |f| %>
+	<% @f = f %>
+	<%= render 'articles/vignette' %>
 
-<% end %>
+	<% end %>
+

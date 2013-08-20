@@ -9,41 +9,58 @@ time, mark, audio, video {
        font: inherit;
        vertical-align: baseline;
 }
-
-html, body {
+@font-face {
+    font-family: 'FontleroyBrown';
+    src: url('../fonts/FontleroyBrown.ttf');
+}
+*{
   margin: 0;
   padding: 0;
+}
+html{
   height: 100%;
-  width: 100%;
 }
-
-#page
-{
-  display: block;
-  width: 100%;
-  margin: 0 auto;
+body {
+  clear: both;
   height: 100%;
-  position: relative;
-  text-align: justify;
-    background-image: url("fond-site3.png");
-    background-size: 100% 100%;
-}
-
-#corps
-{
-  display: inline-block;
-  float: left;
-
-}
-
-
-
-body
-{
   width: 100%;
   margin: 0 auto;
   min-height: 100%;
   position: relative;
-
+}
+#page
+{
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  min-height: 100%;
+  text-align: justify;
+  background-image: url("fond-site3.png");
+  background-size: 100% 100%;
+}
+#corps
+{
+  position: relative;
+  min-height: 100%;
+  margin: 0 auto;
+  padding-bottom: 70px;
+  width: 600px; 
+}
+#body {
+  display: inline-block;
+  float: left;
+}
+#footer
+{
+  background-image: url("fond2.png");
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  box-shadow: 0px -3px 5px #C0C0C0; 
+}
+#banniere
+{
+  padding-bottom: 50px;
+  margin: 0 auto;
 }
 

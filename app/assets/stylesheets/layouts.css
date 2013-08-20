@@ -9,54 +9,28 @@ time, mark, audio, video {
        font: inherit;
        vertical-align: baseline;
 }
-
-
-#banniere
-{
-  padding-bottom: 100px;
-}
-
-
-@font-face {
-    font-family: 'FontleroyBrown';
-    src: url('../fonts/FontleroyBrown.ttf');
-}
-
-p
-{
-  font-size: 17px;
-  font-style: italic;
-  font-weight: bold;
-}
-
 #banniere ul {
- padding:0;
- margin-top: 0 auto;
- list-style-type:none;
- }
-
+  padding:0;
+  margin-top: 0 auto;
+  list-style-type:none;
+}
 #banniere li {
- float:left; /*pour IE*/
- border-left:1px;
- margin-top: 20px;
- }
-
+  float:left; /*pour IE*/
+  border-left:1px;
+  margin-top: 20px;
+}
 #banniere .mail {
   background-image: url("fond2.png");
   position: absolute;
   box-shadow: 0px 3px 5px #C0C0C0; 
   width: 100%;
 }
-
-
 #banniere .mail ul {
   padding: 0;
   margin-top: 0 auto;
   list-style-type: none;
   width: 100%;
-
 }
-
 #banniere .mail li
 {
   float:right;
@@ -64,7 +38,6 @@ p
   margin-top: 0;
   width: 100%;
 }
-
 #banniere .mail h5, h5 a {
   display: inline-block;
   margin-left: 20px;
@@ -75,7 +48,6 @@ p
   text-align: center;
   text-decoration: none;
 }
-
 #banniere .mail h5 a:hover {
   display: inline-block;
   margin-left: 20px;
@@ -86,11 +58,9 @@ p
   text-align: center;
   text-decoration: none;
 }
-
 #banniere .mail h5 strong {
   font-style: italic;
 }
-
 #banniere .bouton a
 {
   margin-top: 20px;
@@ -106,49 +76,31 @@ p
   text-shadow: 2px 2px 2px #C0C0C0;
   line-height: 134px;
 }
-
-
 #banniere .bouton ul li.first {
   margin-left: 80px;
 }
-
 #banniere .bouton a:hover 
 {
   opacity: 1;
   color: #FF4500;
 }
-
-
 #transition-header
 {
  clear:both; 
 }
-
 #titre
 {
   text-align: center;
 }
-
-#footer
-{
-  background-image: url("fond2.png");
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 100%;
-  box-shadow: 0px -3px 5px #C0C0C0; 
-}
-
 #footer ul {
- padding:0;
- margin-top: 0px;
- list-style-type:none;
- }
-
+  padding:0;
+  margin-top: 0px;
+  list-style-type:none;
+}
 #footer li {
- float:left; /*pour IE*/
- border-left:1px;
- }
-
+  float:left; /*pour IE*/
+  border-left:1px;
+}
 #footer .bouton a
 {
   font-style: bold;
@@ -161,8 +113,6 @@ p
   text-decoration: none;
   opacity: 1;
 }
-
-
 #footer .bouton a:hover 
 {
   opacity: 1;

@@ -9,33 +9,27 @@ time, mark, audio, video {
        font: inherit;
        vertical-align: baseline;
 }
-#show-article
-{
-	margin-left: 100px;
-}
-#show-article .titre-article
-{
+.titre_categorie{
 	font-size: 30px;
   	font-weight: bold;
   	color: #696969;
   	text-shadow: 2px 2px 2px #C0C0C0;
-   	padding-bottom: 35px;
+  	text-align: center;
+  	margin-bottom: 35px;
 }
-#show-article #corps-article
-{
-	margin: 0 auto;
-	position: relative;
-	text-align: justify;
-	min-height: 100%;
+.vignette{
+	margin-bottom: 30px;
+	border: solid 1px;
 }
-#show-article #image-article
-{
+.vignette .image-vignette{
 	float: left;
-	padding-right: 20%;
 }
-#show-article #description-article
-{
-	font-size: 17px;
+.vignette h3 a{
+	text-decoration: none;
 }
-
-
+.vignette h3 a:hover{
+	font-style: italic;
+}
+.vignette #transition-vignette{
+	clear: both;
+}

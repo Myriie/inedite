@@ -14,12 +14,11 @@ time, mark, audio, video {
 #aside {
   display: inline-block;
   float: left;
+  position: absolute;
   margin-top: 0;
-  min-height: 100%;
-  border-right: solid 1px black;
+  padding-left: 35px;
   list-style: none;
   padding-right: 100px;
-  padding-bottom: 18%;
 }
 
 #aside .nav-header span {

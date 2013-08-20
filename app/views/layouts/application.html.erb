@@ -1,51 +1,46 @@
 <!DOCTYPE html>
 <html>
+ 
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>    
+      <%= stylesheet_link_tag    "application", media: "all" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+      <%= render 'layouts/shim' %>    
   </head>
+  
   <body>
-<div id="page">
-    <!--Ajout du header par ruby-->
-
-<div id="banniere">
-    <%= render 'layouts/header' %>
-</div>
-
-    <div class="container-fluid">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-
-      <div class="row-fluid">
-
-        <%= render 'layouts/nav' %>
-
-
-      <!-- Corp de page -->
-<div id="corps">
-
-<div class="span8 offset1">
-      <%= yield %>
-    </div>
-
-</div>
-
-
-
-
-</div>
-
-      <!--Ajout du footer par ruby-->
-
-
-      <%= render 'layouts/footer' %>
     
-    </div>
+    <div id="page">
+    
+    <!--Ajout du header par ruby-->
+      <div id="banniere">
+        <%= render 'layouts/header' %>
+      </div>
 
-</div>
+      <div class="container-fluid">
+      
+        <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+
+        <div class="row-fluid">
+          <%= render 'layouts/nav' %>
+          <!-- Corp de page -->
+          <div id="corps">
+
+            <div class="body">
+              <%= yield %>
+            </div>
+
+          </div>
+        </div>
+
+        <!--Ajout du footer par ruby-->
+        <%= render 'layouts/footer' %>
+      </div>
+
+    </div>
+  
   </body>
 </html>
