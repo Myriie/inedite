@@ -68,8 +68,9 @@ time, mark, audio, video {
   font-weight: bold;
   text-decoration: none;
   opacity: 1;
-  text-shadow: 2px 2px 2px #C0C0C0;
+  text-shadow: 2px 2px 5px #C0C0C0;
   line-height: 0;
+  font-size: 20px;
 }
 #banniere .bouton ul li.first {
   margin-left: 0;

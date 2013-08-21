@@ -42,22 +42,22 @@ body {
 #grossepage{
   position: relative;
   top: 0;
-  width: 600px;
+  width: 900px;
   padding: 0 0 50px 0;
   min-height: 100%;
-  margin: 0 0 0 400px;
+  margin: 0 0 0 250px;
 }
 #corps
 {
   position: relative;
   top: 0;
-  width: 600px;
+  width: 100%;
   margin-top: 50px;
   padding: 20px 50px 20px 50px;
   min-height: 100%;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 25px #C0C0C0; 
 }
 
 #footer
@@ -77,4 +77,13 @@ body {
 #dernier-element{
   margin: 0;
   padding-bottom: 4em;
+}
+.flash{
+  background-color: green;
+  opacity: 0.3;
+  text-align: center;
+}
+.flash .strong{
+  color: black;
+  opacity: 1;
 }

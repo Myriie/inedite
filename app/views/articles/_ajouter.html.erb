@@ -9,28 +9,25 @@
 <%= form_tag("/add", method: "post") do %>
 
 
- <% if @article.clothes.any? %>
-    	<select name="product_id">
-    		<% @article.clothes.all.each do |c|%>
-    			<option value="<%=c.id%>" ><%= c.size%>/<%= c.color%>
-    		<%end%>
-    	</select>
-    	<%= hidden_field_tag(:product_type, "clothe") %>
+<% if @article.clothes.any? %>
+   	<select name="product_id">
+   		<% @article.clothes.all.each do |c|%>
+   			<option value="<%=c.id%>" ><%= c.size%>/<%= c.color%>
+   		<%end%>
+   	</select>
+
+   	<%= hidden_field_tag(:product_type, "clothe") %>
     <% else %>
     	<%= hidden_field_tag(:product_id, @article.other.id) %>
     	<%= hidden_field_tag(:product_type, "other") %>
     <% end %>
 
+<%= hidden_field_tag(:article_id, @article.id) %>
     </br>
 
-<% if @article.clothes.any? %>
+
 	<% dispo = 15 %>
-	<% else %>
-	<% o = Other.where('article_id' => @article.id) %>
-	<% stock = o.first.stock %>
-	<% reserve = o.first.reserve %>
-	<% dispo = stock - reserve %>
-<% end %>
+
 
   <%= number_field_tag(:quantity, nil, :min =>1, :max => dispo) %>
 </br>
