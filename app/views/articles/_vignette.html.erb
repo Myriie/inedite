@@ -6,22 +6,18 @@
             <%= image_tag("pikachu.png", :size => "75x95") %>
     </div>
 
-    <p><%= @f.description %></p>
+    <div class="description"><%= @f.description %></div>
     
-    <p><strong>Prix : <%= @f.price %>€</strong></p>
+    <div class="prix">Prix : <%= @f.price %>€</div>
     
     <% if @f.clothes.any? %>
-    	<p>Taille disponible :
-    	<% @f.clothes.each do |c|%>
-    		<%= c.size %> 
-    	<% end %>
-        </p>
-        
-        <p>Disponible en:
-        	<% @f.clothes.each do |c|%>
-        		<li><%= c.size %> / <%= c.color %></li>
-        	<% end %>
-        </p>    
+        <ul>
+            <div class="choix">Disponible en:
+            	<% @f.clothes.each do |c|%>
+            		<li><%= c.size %> / <%= c.color %></li>
+                <% end %>
+            </div>   
+        </ul> 
     <% end %>
 
     <div id="transition-vignette">

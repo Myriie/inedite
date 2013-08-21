@@ -9,10 +9,7 @@ time, mark, audio, video {
        font: inherit;
        vertical-align: baseline;
 }
-@font-face {
-    font-family: 'FontleroyBrown';
-    src: url('../fonts/FontleroyBrown.ttf');
-}
+
 *{
   margin: 0;
   padding: 0;
