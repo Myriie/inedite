@@ -9,11 +9,11 @@
 
 <table>
 	<tr>
-		<th>Nom du produit</th>
+		<th class="first">Nom du produit</th>
 		<th>Prix unitaire</th>
 		<th>Quantite</th>
 		<th>Sous-total</th>
-		<th>Retirer du panier</th>
+		<th class="last">Retirer du panier</th>
 	</tr>
 
 <% @panier.reservations.each do |res| %>
@@ -22,31 +22,43 @@
 	
 	<tr>
 		<td>
-			<div class="image-vignette">
-            	<%= image_tag("pikachu.png", :size => "70x85") %>
+			<div class="image">
+				<%= image_tag("pikachu.png", :size => "70x85") %>
     		</div>
-			<a href="/articles/<%= article.id %>"><%= article.title %></a> 
+
+    		<div class="titre">
+    			<a href="/articles/<%= article.id %>"><%= article.title %></a> 
+    		</div>
 		</td>
 
 		<td>
-			<%= article.price %>€
+			<%= article.price %> €
 		</td>
 
 		<td>
-   			<%= form_tag("/edit", method: "get") do %>
-				<%= hidden_field_tag(:article_id, article.id) %>
-				<%= number_field_tag(:quantity, res.quantity, :min =>1, :max => 5) %>
-				<% sum = sum + article.price * res.quantity %> 
-		  		<%= submit_tag("Edit") %>
-	  		<%end%>
+			<div class="numberglobal">
+			<%= form_tag("/edit", method: "get") do %>
+					<%= hidden_field_tag(:article_id, article.id) %>
+			<div class="number">
+					<%= number_field_tag(:quantity, res.quantity, :min =>1, :max => 5) %>
+			</div>
+					<% sum = sum + article.price * res.quantity %> 
+				<br />
+			<div class="numberedit">
+			  		<%= submit_tag("Edit") %>
+		 	</div>	  		
+		  		<%end%>
+		  	</div>
+		 
 	 	</td>
 
 	  	<td>
-	  		<%= article.price*res.quantity%>€
+	  		<%= article.price*res.quantity%> €
 
 	  	</td>
 
 	  	<td>
+	  		<%= image_tag("delete.png", :size =>"25x25")%>
 	  		<%= form_tag("/destroy", method: "get") do %>
 					  		
 			  		<%= hidden_field_tag(:article_id, article.id) %>
