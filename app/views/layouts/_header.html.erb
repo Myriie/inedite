@@ -1,21 +1,22 @@
 <div id= "banniere">
   <header class="navbar navbar-fixed-top navbar-inverse"> 
     <nav>
-
-          <div class="bouton">
+       
+ <div id="titre">
+                <%= image_tag("logoinedite.png", :size => "300x300") %>
+        </div>
+        <div class="bouton">
             <ul>
 
               <li class="first"><%= link_to "Help",    help_path %></li>
               <li><%= link_to "Home",    root_path %></li>
-              
-              <li><div id="titre">
-                <%= image_tag("inedite4.png") %>
-                  </div></li>
-              <li><%= link_to "Panier", '/panier', :class => 'navbar-link'  %></li>
+             <li>
+                <%= link_to "Panier", '/panier', :class => 'navbar-link'  %>
+              </li>
               <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
 
             </ul>
-          </div>  
+         </div> 
       
 
         <% if user_signed_in? %>

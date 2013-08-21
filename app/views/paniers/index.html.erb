@@ -1,33 +1,42 @@
 <div id="corps">
 	<h1>Mon panier</h1>
-
+ 
 <% sum = 0 %>
+
+	
 
 <% @panier.reservations.each do |res| %>
 	<% article = Article.find(res.article_id) %>
 
-	<p>
-   		<a href="/articles/<%= article.id %>"><%= article.title %></a> 
-   		<%= form_tag("/edit", method: "get") do %>
-			<%= hidden_field_tag(:article_id, article.id) %>
-			<%= number_field_tag(:quantity, res.quantity, :min =>1, :max => 5) %>
-			 x <%= article.price%>€ = <%= article.price * res.quantity%> €
-			<% sum = sum + article.price * res.quantity %> 
+	
+			<a href="/articles/<%= article.id %>"><%= article.title %></a> 
+
+		
+			<%= article.price %>€
+
+		
+   			<%= form_tag("/edit", method: "get") do %>
+				<%= hidden_field_tag(:article_id, article.id) %>
+				<%= number_field_tag(:quantity, res.quantity, :min =>1, :max => 5) %>
+				<% sum = sum + article.price * res.quantity %> 
 		  	<%= submit_tag("Edit") %>
 	  	<%end%>
+	 
 
-		<%= form_tag("/destroy", method: "get") do %>
-		<% if res.class == Clothe %>
-			  <%= hidden_field_tag(:product_id, res.product_id) %>
-			  <%= hidden_field_tag(:product_type, "clothe") %>
-		  <%else%>
-			  <%= hidden_field_tag(:product_id, res.product_id) %>
-			  <%= hidden_field_tag(:product_type, "other") %>
+	  	
+	  		<%= article.price*res.quantity %>
+	  		<%= form_tag("/destroy", method: "get") do %>
+				<% if res.class == Clothe %>
+			  		<%= hidden_field_tag(:product_id, res.product_id) %>
+			  		<%= hidden_field_tag(:product_type, "clothe") %>
+		  		<%else%>
+			  		<%= hidden_field_tag(:product_id, res.product_id) %>
+			  		<%= hidden_field_tag(:product_type, "other") %>
 
-		  <%end%>
-		  <%= submit_tag("Enlever du panier") %>
-	  	<%end%>
-	</p>
+		  		<%end%>
+		  	<%= submit_tag("Enlever du panier") %>
+	  		<%end%>
+	
 
 
 <%end%>
@@ -44,9 +53,6 @@
 	  	<%end%>
 
 </p>
-
-
-
 
   <script>
   	var clicked = false;
@@ -70,6 +76,4 @@
 
 	  };
   </script>
-
-      
 </div>

@@ -17,7 +17,7 @@ time, mark, audio, video {
 #banniere li {
   float:left; /*pour IE*/
   border-left:1px;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 #banniere .mail {
   background-image: url("fond2.png");
@@ -49,23 +49,18 @@ time, mark, audio, video {
   text-decoration: none;
 }
 #banniere .mail h5 a:hover {
-  display: inline-block;
-  margin-left: 20px;
-  margin-top: 0 auto;
-  margin-right: 20px;
   color: #FF4500;
-  vertical-align: middle;
-  text-align: center;
-  text-decoration: none;
 }
 #banniere .mail h5 strong {
   font-style: italic;
 }
+#banniere .bouton{
+  border: solid black;
+  position: relative;
+}
 #banniere .bouton a
 {
-  margin-top: 20px;
-  margin-left:60px;
-  margin-right: 60px;
+  margin: 170px 35px 35px 0;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -74,10 +69,10 @@ time, mark, audio, video {
   text-decoration: none;
   opacity: 1;
   text-shadow: 2px 2px 2px #C0C0C0;
-  line-height: 134px;
+  line-height: 0;
 }
 #banniere .bouton ul li.first {
-  margin-left: 80px;
+  margin-left: 0;
 }
 #banniere .bouton a:hover 
 {
@@ -88,9 +83,10 @@ time, mark, audio, video {
 {
  clear:both; 
 }
-#titre
+#banniere #titre
 {
-  text-align: center;
+  float: left;
+  margin-left: 15px;
 }
 #footer ul {
   padding:0;

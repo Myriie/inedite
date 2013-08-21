@@ -1,29 +1,61 @@
-<div id="edit-profil">
-<h2>Sign up</h2>
+<div class="login">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <h2>Sign up</h2>
 
- <div><%= f.label :nom %><br />
-  <%= f.text_field :nom %></div>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :prenom %><br />
-  <%= f.text_field :prenom %></div>
+    <div class="normal">
+      <%= f.label :nom %><br />
+      <%= f.text_field :nom %>
+      <br />
+    </div>
 
-  <div><%= f.label :adresse %><br />
-  <%= f.text_field :adresse %></div>
+    <div class="normal">
+      <br />
+      <%= f.label :prenom %><br />
+      <%= f.text_field :prenom %>
+      <br />
+    </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+    <div class="normal">
+        <br />
+      <%= f.label :adresse %><br />
+      <%= f.text_field :adresse %>
+    
+    </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <div class="normal">
+      <br />
+      <%= f.label :email %><br />
+      <%= f.email_field :email, :autofocus => true %>
+      
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div class="normal">
+      <br />
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+      
+    </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <div class="normal">
+      <br />
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+      
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="button_login">
+      <div>
+        <br />
+        <%= f.submit "Sign up" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="autre">
+    <br />
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
