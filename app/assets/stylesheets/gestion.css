@@ -14,7 +14,8 @@ time, mark, audio, video {
     color: rgb(6, 106, 117);
     font-weight: bold;
     text-align: center;
-    padding-bottom: 75px;
+    padding-top: 10px;
+    padding-bottom: 35px;
 }
 #gestion h1{
     background: 
@@ -27,9 +28,14 @@ time, mark, audio, video {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
+#gestion h3{
+  font-size: 20px;
+  color: rgb(6, 106, 117);
+  font-weight: bold;
+}
 #gestion table {
 	width: 100%;
-	margin: 0 0 1em 0;
+	margin: 0 0 0em 0;
 	font-size: 15px;
 }
 #gestion table, tr, th, td {
@@ -54,9 +60,75 @@ time, mark, audio, video {
 #gestion table th.first{
 	border-radius: 8px 0 0 0; 
 }
-#monpanier table th.last{
-	border-radius: 0 8px 0 0;
+#gestion .gestionmodifier input{
+    display: inline-block;
+    width: 70px;
+    padding: 2px 2px;
+    color: #696969;
+    background-color: #F8F8FF;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid  #A9A9A9;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s  linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s  linear;
+    transition: all 0.4s  linear;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-#monpanier table th.vider{
-  border-radius: 0 0 8px 0;
+#gestion .gestionmodifier input:hover {
+    color: #FFA07A;
+    background: #FAF0E6;
+    border: 1px solid #FFA07A;
+}
+.gestionprix, .gestioncombi, .gestionstock, .gestionreserve, .gestiondispo, .gestiontype, .gestiondescription{
+    padding:  0 15px 0 15px;
+   color: #696969;
+}
+#gestion .gestionprix{
+  font-weight: bold;
+}
+#gestion .gestiondescription{
+  font-style: italic;
+}
+#gestion .gestiontitre a{
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 0 15px 0 15px;
+}
+#gestion .gestiontitre a:hover{
+  font-style: italic;
+}
+#gestion p.creerarticle a{
+  display: inline-block;
+  font-weight: bold;
+  background: rgb(247, 248, 241);
+  color: rgb(29, 162, 193);
+  text-decoration: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s  linear;
+  -o-transition: all 0.4s linear;
+  -ms-transition: all 0.4s  linear;
+  transition: all 0.4s  linear;
+  width: 250px;
+  padding: 5px 5px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid  rgb(203, 213, 214);
+}
+#gestion p.creerarticle a:hover {
+    color: rgb(57, 191, 215);
+    background: rgb(247, 247, 247);
+    border: 1px solid rgb(74, 179, 198);
 }

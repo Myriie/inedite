@@ -105,6 +105,8 @@ table th.vider{
   border: 1px solid  white;
   margin-bottom: 0;
   opacity: 0.8;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .delete input:hover{
   opacity: 1;

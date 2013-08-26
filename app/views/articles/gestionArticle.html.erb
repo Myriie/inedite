@@ -3,7 +3,7 @@
 
 <h1>Gestion des articles</h3>
 
-	<p><a href="/articles/new">Creer un nouvel article</a><br /></p>
+	<p class="creerarticle"><a href="/articles/new">Creer un nouvel article</a> <br /></p>
 
 	<table>
   		<tr>
@@ -15,24 +15,30 @@
 	       	<th>Stock</th>
 	       	<th>Quantité réservée</th>
 	       	<th>Quantité disponible</th>
-	       	<th>Editer l'article</th>
-	       	<th>Supprimer</th>
+	       	<th></th>
+	       	<th></th>
 	  	</tr>
 
 	  		<% @articles.each do |art| %>
 	  	
 	  			<tr>
-			       	<td><div class="titre"> 
+			       	<td class="gestiontitre"> 
 			       			<%= link_to art.title,   article_path(art.id) %>
-			    		</div>
+			    		
+			    	</td>
 
-			       	<td> <%= art.description %> 
+			       	<td class="gestiondescription"> <%= art.description %> 
+			    	</td>
+
+			       	<td class="gestionprix">
+			       		<div class="gestionprix"><%= art.price%>€</div>
+			       	</td>
 			    
-			       	<td> <%= art.price%>€
+			       	<td class="gestiontype">
+			       		<%= art.type_art %></div>
+			       	</td>
 			    
-			       	<td> <%= art.type_art %>
-			    
-			       	<td>	<% if art.clothes.any? %>
+			       	<td class="gestioncombi">	<% if art.clothes.any? %>
 			       				<% @vet = art.clothes.find(:all)%>
 				       			<% @vet.each do |v| %>
 				       				<%= v.color %>
@@ -40,8 +46,9 @@
 				       				<br />
 				       			<% end %>
 	        				<% end %> 
+	        			</td>
 
-	        		<td>	
+	        		<td class="gestionstock">	
 
 	        			<% if art.clothes.any? %>
 			       				<% @vet = art.clothes.find(:all)%>
@@ -49,13 +56,7 @@
 				       			<%= v.stock %>
 				       				<br />
 
-				       			<%= form_for(v) do |clo| %>
-				       				<%= clo.label :stock %>
-				        			<%= clo.number_field :stock %>
-				        			<div class="actions">
-								      	<%= clo.submit "Soumettre" %>
-								    </div>
-				        			<% end %>
+				       			
 				        		
 				        		<% end %>
 
@@ -65,10 +66,10 @@
 				       			<%= oth.first.stock %>
 	        				<% end %> 
 	        				
+					</td>
 
 
-
-	        		<td>	<% if art.clothes.any? %>
+	        		<td class="gestionreserve">	<% if art.clothes.any? %>
 			       				<% @vet = art.clothes.find(:all)%>
 				       			<% @vet.each do |v| %>
 				       				<%= v.reserve %>
@@ -80,9 +81,9 @@
 				       			<%= oth.first.reserve %>
 	        				<% end %> 
 	        				
-
+	        			</td>
 	        	
-	        		<td>	<% if art.clothes.any? %>
+	        		<td class="gestiondispo">	<% if art.clothes.any? %>
 			       				<% @vet = art.clothes.find(:all)%>
 				       			<% @vet.each do |v| %>
 
@@ -95,14 +96,16 @@
 	        				
 				       			<% else %>
 				       			<% oth = Other.where('article_id' => art.id) %>
-				       			<%= oth.first.stock %> - <%= oth.first.reserve %> = <%= oth.first.stock - oth.first.reserve %>
+				       			<%= oth.first.stock - oth.first.reserve %>
 	        				<% end %>       	
 
+	        		</td>
 
-	        		<td><div class="numberedit"> 
+	        		<td><div class="gestionmodifier"> 
 	        			<%= button_to "Modifier",   edit_article_path(art.id), :method => :get %>
 	        		</div>
 
+	        		</td>
 
 	        		<td>
 	        			<%= form_tag(article_path(art.id), method: "delete") do %>      
@@ -111,6 +114,8 @@
 					  		<%= submit_tag("") %>
 					  	</div>
 						<% end %>
+</td>
+
 				</tr>
 		
 			<% end %>

@@ -1,28 +1,62 @@
-<div id="corps">
-<% @type_art = Article.find(:all, :select => 'DISTINCT type_art')%>
-
-
-<p>
-
-  <%=form_tag("/articles", method: "create") do %>
+<div id="gestion">
+  <div class="new_article">
+    <h1>Ajouter un article</h1>
+    <% @type_art = Article.find(:all, :select => 'DISTINCT type_art')%>
+    
+    <p>
+      <%=form_tag("/articles", method: "create") do %>
   
-    Titre: <br />
-    <%= text_field_tag(:title) %> <br />
+        <div class="formulaire">
+          
+          <div class="champs">
+            Titre :
+          </div> 
+          <%= text_field_tag(:title) %>
+          <br />
 
-    Description:<br />
-    <%= text_field_tag(:description) %><br />
+          <div class="champs">
+            <br />
+            Description :
+          </div>
+          <div class="box_description">
+            <%= text_field_tag(:description) %><br />
+          </div>
 
-    Prix : <%= text_field_tag(:price) %>€<br />
+          <div class="new_article_type">
+            <div class="champs">
+              <br />
+              Type :
+            </div>
+            <div class="deroulant">
+              <div id="field">
+                <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :id =>"type_art")%>
+              </div>
+            </div>
+            <a id="change">Cliquez ici pour changez la méthode de selection du type</a>
+            <br />
 
-        <div id="field">
-      <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => "-Type de l'article"}, :id =>"type_art")%>
-        </div>
+          </div> 
 
-    <a id="change">Cliquez ici pour changez la méthode de selection du type</a> <br />
-
-    Quantité: <%= number_field_tag(:stock) %> <br />
-
-      <%= submit_tag("Soumettre") %>
+          <div class="champs_titre_prix">
+           <br />
+           Prix :
+          </div> 
+          <div class="champs_prix"><%= text_field_tag(:price) %>
+          </div>
+          <div class="devise"> € </div>
+          
+          <div class="champs_titre_quantity">
+            <br />
+            Quantité :
+          </div>
+          <div class="champs_quantity">
+            <%= number_field_tag(:stock) %>
+          </div>
+       
+          <div class="button_soumettre">
+          <br />
+            <%= submit_tag("Soumettre") %>
+          </div>
 
   <% end %>
 </p>
@@ -58,4 +92,6 @@
 
     };
   </script>
+
+</div>
 </div>

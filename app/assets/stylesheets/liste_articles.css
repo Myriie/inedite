@@ -20,16 +20,21 @@ time, mark, audio, video {
     font-style: normal;
 
 }
-
+.titre_categorie h1{
+  background-image: url("t1.png");
+  background-repeat: no-repeat;
+  background-size: 500px 200px;
+  background-position: center; 
+  padding: 100px 0 100px 0;
+}
 .titre_categorie{
-	font-size: 30px;
+	font-size: 35px;
   font-weight: bold;
   color: #696969;
   text-shadow: 2px 2px 2px #C0C0C0;
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
-
 }
 .vignette{
   padding-top:25px;

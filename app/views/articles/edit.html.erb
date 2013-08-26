@@ -1,27 +1,51 @@
-<div id="corps">
-<% @type_art = Article.find(:all, :select => 'DISTINCT type_art')%>
-
-<h1> Modifier un article </h1>
-
-<h3><%= @article.title %></h3>
-
-<p>
-
-	<%=form_tag(article_path(@article.id), method: :put) do %>
+<div id="gestion">
+  <div class="new_article">
+  <% @type_art = Article.find(:all, :select => 'DISTINCT type_art')%>
+  <h1> Modifier un article </h1>
+  <h3><%= @article.title %></h3>
+  <br />
+  <p>
+  	<%=form_tag(article_path(@article.id), method: :put) do %>
 	
-		Description:<br />
-		<%= text_field_tag(:description, @article.description) %><br />
+    <div class="formulaire">
 
- 		Prix : <%= text_field_tag(:price, @article.price) %>€<br />
+      <div class="champs">
+        Description :
+      </div>
+      <div class="box_description">
+        <%= text_field_tag(:description, @article.description) %>
+        <br />
+      </div>
 
- 		    <div id="field">
-      <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => @article.type_art}, :id =>"type_art")%>
-    		</div>
+      <div class="new_article_type">
+        <div class="champs">
+          <br />
+          Type :
+        </div>
+        <div class="deroulant">
+          <div id="field">
+          <%= collection_select(:article, :type_art, @type_art, :type_art, :type_art, options ={:prompt => @article.type_art}, :id =>"type_art")%>
+          </div>
+        </div>
+        <a id="change">Cliquez ici pour changez la méthode de selection du type</a>
+        <br />
+      </div>
 
-    <a id="change">Cliquez ici pour changez la méthode de selection du type</a>
+      <div class="champs_titre_prix">
+        <br />
+     		Prix :
+      </div>
+      <div class="champs_prix">
+        <%= text_field_tag(:price, @article.price) %>
+      </div>
+      <div class="devise">
+        €
+      </div>
 
-  		<%= submit_tag("Modifier") %>
+      <div class="button_soumettre">        
+    		<%= submit_tag("Modifier") %>
 
+      </div>
 	<% end %>
 </p>
 
@@ -62,4 +86,6 @@
     };
   </script>
 
+
+  </div>
 </div>
