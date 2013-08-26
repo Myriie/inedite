@@ -1,0 +1,62 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, code, em, img, strike, strong, sub, sup, tt, var,
+b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+       margin: 0;
+       padding: 0;
+       border: 0;
+       font-size: 100%;
+       font: inherit;
+       vertical-align: baseline;
+}
+#gestion h1{
+    font-size: 48px;
+    color: rgb(6, 106, 117);
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 75px;
+}
+#gestion h1{
+    background: 
+    -webkit-repeating-linear-gradient(-45deg, 
+        rgb(18, 83, 93) , 
+        rgb(18, 83, 93) 20px,
+        rgb(64, 111, 118) 20px,
+        rgb(64, 111, 118) 40px,
+        rgb(18, 83, 93) 40px);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+#gestion table {
+	width: 100%;
+	margin: 0 0 1em 0;
+	font-size: 15px;
+}
+#gestion table, tr, th, td {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+#gestion table th{
+	background-color: #D21603;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	text-shadow: 2px 2px 0 black;
+	padding: 10px 0 10px 0;
+  opacity: 0.85;
+}
+#gestion table td{
+	border: solid 1px #C0C0C0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+#gestion table th.first{
+	border-radius: 8px 0 0 0; 
+}
+#monpanier table th.last{
+	border-radius: 0 8px 0 0;
+}
+#monpanier table th.vider{
+  border-radius: 0 0 8px 0;
+}

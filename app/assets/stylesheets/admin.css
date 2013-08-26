@@ -1,0 +1,92 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, code, em, img, strike, strong, sub, sup, tt, var,
+b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+       margin: 0;
+       padding: 0;
+       border: 0;
+       font-size: 100%;
+       font: inherit;
+       vertical-align: baseline;
+}
+#admin ul {
+  padding:0;
+  margin-top: 0 auto;
+  list-style-type: none;
+}
+#admin li {
+  border-left:1px;
+  margin-top: 0;
+}
+#admin h1{
+    font-size: 48px;
+    color: rgb(6, 106, 117);
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 75px;
+}
+#admin h1{
+    background: 
+    -webkit-repeating-linear-gradient(-45deg, 
+        rgb(18, 83, 93) , 
+        rgb(18, 83, 93) 20px,
+        rgb(64, 111, 118) 20px,
+        rgb(64, 111, 118) 40px,
+        rgb(18, 83, 93) 40px);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+#admin ul .gestionboutique h2{
+	font-size: 25px;
+	color: rgb(6, 106, 117);
+	padding-bottom: 10px;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 60px;
+	background: 
+    -webkit-repeating-linear-gradient(-45deg, 
+        rgb(18, 83, 93) , 
+        rgb(18, 83, 93) 20px,
+        rgb(64, 111, 118) 20px,
+        rgb(64, 111, 118) 40px,
+        rgb(18, 83, 93) 40px);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.gestionnormal{
+
+}
+.gestionboutique{
+	float: left;
+	margin-right: 200px;
+}
+.linkbutton a{
+    display: inline-block;
+    width: 310px;
+    cursor: pointer; 
+    padding: 15px 15px;
+    color: #696969;
+    background-color: #F8F8FF;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    text-shadow: 0 1px 1px #C0C0C0;
+    box-shadow: 
+        0pt 2px 10px rgba(105, 108, 109,  0.7),  
+        0px 0px 2px 0px rgba(208, 223, 226, 0.4) inset;
+  	border-radius: 5px;
+    border: 1px solid rgb(28, 108, 122);
+	    -webkit-transition: all 0.4s linear;
+	    -moz-transition: all 0.4s  linear;
+	    -o-transition: all 0.4s linear;
+	    -ms-transition: all 0.4s  linear;
+	    transition: all 0.4s  linear;
+	    margin-bottom: 0;
+	}
+.linkbutton a:hover {
+    color: #FFA07A;
+    background: #FAF0E6;
+    border: 1px solid #FFA07A;
+    font-weight: bold;
+    cursor: pointer; 
+}

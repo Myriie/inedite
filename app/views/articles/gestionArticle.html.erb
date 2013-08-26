@@ -1,16 +1,7 @@
 <div id="corps">
-	<style>
+	<div id="gestion">
 
-
-
-td {
-	border: solid black 1px;
-}
-
-
-</style>
-
-<h1>Bienvenue sur la page de gestion des articles de la boutique</h3>
+<h1>Gestion des articles</h3>
 
 	<p><a href="/articles/new">Creer un nouvel article</a><br /></p>
 
@@ -31,8 +22,10 @@ td {
 	  		<% @articles.each do |art| %>
 	  	
 	  			<tr>
-			       	<td> <li><%= link_to art.title,   article_path(art.id) %></li>
-			    
+			       	<td><div class="titre"> 
+			       			<%= link_to art.title,   article_path(art.id) %>
+			    		</div>
+
 			       	<td> <%= art.description %> 
 			    
 			       	<td> <%= art.price%>€
@@ -106,17 +99,22 @@ td {
 	        				<% end %>       	
 
 
-	        		<td> <li><%= button_to "Modifier",   edit_article_path(art.id), :method => :get %></li>
+	        		<td><div class="numberedit"> 
+	        			<%= button_to "Modifier",   edit_article_path(art.id), :method => :get %>
+	        		</div>
 
 
 	        		<td>
 	        			<%= form_tag(article_path(art.id), method: "delete") do %>      
 	        			<%= hidden_field_tag(:id, art.id) %>
-					  	<%= submit_tag("Supprimer") %>
+	        			<div class="delete">
+					  		<%= submit_tag("") %>
+					  	</div>
 						<% end %>
 				</tr>
 		
 			<% end %>
 	</table>
 
+</div>
 </div>

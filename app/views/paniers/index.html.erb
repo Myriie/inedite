@@ -1,11 +1,11 @@
 <div id="corps">
 
 	<div id="monpanier">
+<% sum = 0 %>
 
 		<div class="titre_categorie">
 			<h1>Mon panier</h1>
  		</div>
-<% sum = 0 %>
 
 <table>
 	<tr>
@@ -52,38 +52,52 @@
 		 
 	 	</td>
 
-	  	<td>
-	  		<%= article.price*res.quantity%> €
-
+	  	<td class="strong">
+	  			<%= article.price*res.quantity%> €
 	  	</td>
 
 	  	<td>
-	  		<%= image_tag("delete.png", :size =>"25x25")%>
+	  		
 	  		<%= form_tag("/destroy", method: "get") do %>
 					  		
 			  		<%= hidden_field_tag(:article_id, article.id) %>
 
-		  	
-		  	<%= submit_tag("Enlever du panier") %>
+		  		<div class="delete">
+		  			<%= submit_tag("") %>
+	  			</div>
 	  		<%end%>
+
 		</td>
 	  	</tr>
 
 	<%end%>
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class="sumtotal">Total: <strong><%= sum %> €</strong></th>
+		<th class="vider">
+			<%= form_tag("/flush", method: "get") do %>
+				<div class="clearpanier">
+		  			<a id="clickme" class="btn btn-primary">Vider le Panier</a>
+				</div>
+				<div class="sur">
+					
+			  		<p id="sure" style="display:none"><br />Etes vous sur ? <br /> 
+
+			  			<input class ="sure" type="submit" name="Oui" value="Oui">
+			  			<a href="/panier" class ="sure">NON</a>
+			  		</p>
+		  		</div>
+		  	<%end%>
+	  </th>
+	</tr>
 </table>
+
 
 <div class="total">
 <p>
-	Total: <%= sum %> €
-
-		<%= form_tag("/flush", method: "get") do %>
-		  <a id="clickme" class="btn btn-primary">Vider le Panier</a></br>
-		  <p id="sure" style="display:none">Etes vous sur ? 
-		  	<input class ="btn" type="submit" name="Oui" value="Oui">
-		  	<a href="/panier" class ="btn">Non</a>
-		  </p>
-	  	<%end%>
-
+	Confirmer votre commande
 </p>
 </div>
 

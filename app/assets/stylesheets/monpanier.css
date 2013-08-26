@@ -18,42 +18,55 @@ table {
 	margin: 0 0 1em 0;
 	font-size: 15px;
 }
-table, tr, th, td {
+#monpanier table{
+  box-shadow: 
+        0pt 5px 35px rgba(105, 108, 109,  0.7),  
+        0px 0px 8px 0px rgba(208, 223, 226, 0.4) inset;
+  border-radius: 5px;
+}
+#monpanier table, tr, th, td {
 	border-spacing: 0;
 	border-collapse: collapse;
 }
-table th{
+#monpanier table th{
 	background-color: #D21603;
 	text-align: center;
 	color: white;
 	font-weight: bold;
 	text-shadow: 2px 2px 0 black;
 	padding: 10px 0 10px 0;
+  opacity: 0.85;
 }
-table td{
+#monpanier table td{
 	border: solid 1px #C0C0C0;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
 }
-table th.first{
+#monpanier table th.first{
 	border-radius: 8px 0 0 0; 
 }
-table th.last{
+#monpanier table th.last{
 	border-radius: 0 8px 0 0;
+}
+table th.vider{
+  border-radius: 0 0 8px 0;
 }
 #corps #monpanier .total{
 	margin-top: 50px;
 }
-.image{
+#monpanier .image{
 	float: left;
 	padding-left: 15px;
 }
 .titre a{
- 	font-weight: bold;
-  	color: #696969;
+  color: #696969;
 	text-decoration: none;
-	padding-left: 25px;
+	padding-left: 15px;
+  padding-right: 15px;
+}
+.titre a:hover{
+  font-style: italic;
 }
 .numberglobal input{
     display: inline-block;
@@ -82,4 +95,91 @@ table th.last{
     color: #FFA07A;
     background: #FAF0E6;
     border: 1px solid #FFA07A;
+}
+.delete input{
+  display: inline-block;
+  width: 32px;
+  padding: 2px 2px 10px 2px;
+  background: url("delete.png") no-repeat;
+  background-size: 30px 30px;
+  border: 1px solid  white;
+  margin-bottom: 0;
+  opacity: 0.8;
+}
+.delete input:hover{
+  opacity: 1;
+}
+.total{
+  text-align: right;
+}
+table td.strong{
+  font-weight: bold;
+}
+a#clickme{
+  display: inline-block;
+  width: 60%;
+  padding: 5px 0 2px 0;
+  opacity: 0.8;
+  text-decoration: none;
+  text-shadow:none;
+  border: 2px solid #FAF0E6;
+  margin-bottom: 0;
+  text-align: center;
+  -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px; 
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s  linear;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s  linear;
+    transition: all 0.4s  linear;
+    margin-bottom: 0;
+}
+a#clickme:hover{
+  color: #D21603;
+  background: #FAF0E6;
+  border: 2px solid #D21603;
+  opacity: 0.8;
+}
+.sur{
+  text-decoration: none;
+  text-shadow: none;
+  font-weight: normal;
+  font-size: 20px;
+}
+table input.sure, a.sure {
+  display: inline-block;
+  width: 50px;
+  padding: 5px 5px;
+  font-weight: bold;
+  color: #696969;
+  background-color: #F8F8FF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid  #A9A9A9;
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s  linear;
+  -o-transition: all 0.4s linear;
+  -ms-transition: all 0.4s  linear;
+  transition: all 0.4s  linear;
+  margin-bottom: 0;
+}
+a.sure:hover, input.sure:hover {
+    color: green;
+    width: 70px;
+    background: #FAF0E6;
+    border: 1px solid #FFA07A;
+}
+table th.sumtotal{
+  text-shadow: none;
+  font-weight: normal;
+}
+table th.sumtotal strong{
+  font-size: 20px;
+  font-weight: bold;
+
 }
